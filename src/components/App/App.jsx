@@ -20,7 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ProductList from '../ProductList/ProductList';
-// import ProductItem from '../ProductItem/ProductItem';
+import AddProductForm from '../AddProductForm/AddProductForm';
+
 
 
 import './App.css';
@@ -68,8 +69,8 @@ function App() {
             exact
             path="/product"
           >
-            {/* <ShelfForm /> */}
-            {/* <br /> */}
+            <AddProductForm />
+            <br /> 
             <ProductList />
           </ProtectedRoute>
 

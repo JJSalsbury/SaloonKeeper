@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 
-function ProductItem({ item }) { //item coming from .map on ShelfPage 
+function ProductItem({product}) { //item coming from .map on ShelfPage 
 
     const dispatch = useDispatch();
-    console.log(item);
+    const user = useSelector(store => store.user);
+    console.log(product);
+    const handleClick = () => {
+        dispatch({ type: 'ADD_PRODUCT', payload: product.id }) //sends item id to saga with delete request
+    }
 
 
     return (
@@ -13,7 +17,7 @@ function ProductItem({ item }) { //item coming from .map on ShelfPage
                     return (
                         <ProductItem
                         id={i}
-                        item={item} />
+                        item={product} />
                     );
                 )
         </main>

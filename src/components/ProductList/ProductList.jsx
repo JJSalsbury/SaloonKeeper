@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ProductItem from '../ProductItem/ProductItem';
+import AddNewProductForm from '../AddProductForm/AddProductForm';
 
 
 function ProductList() {
@@ -11,14 +11,14 @@ function ProductList() {
 
 
     useEffect(() => {
-        dispatch({ type: 'GET_PRODUCT' });
+        dispatch({type: 'GET_PRODUCT'});
     }, []);
 
     return (
     <main>
     <h1>Product List</h1>
     <section className="product">
-        {product.map(product => {
+        {product.map((product) => {
             return (
                 <div key={product.id} >
                 <h3>PRODUCT NAME: {product.name}</h3>
