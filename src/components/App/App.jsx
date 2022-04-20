@@ -70,7 +70,6 @@ function App() {
             path="/product"
           >
             <AddProductForm />
-            <br /> 
             <ProductList />
           </ProtectedRoute>
 

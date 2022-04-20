@@ -1,6 +1,7 @@
 import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import AddNewProductForm from '../AddProductForm/AddProductForm';
+// import newProductForm from '../newProductForm/newProductForm';
+import ProductItem from '../ProductItem/ProductItem';
 
 
 function ProductList() {
@@ -9,28 +10,26 @@ function ProductList() {
     const product = useSelector(store => store.productReducer);
 
 
-
     useEffect(() => {
-        dispatch({type: 'GET_PRODUCT'});
+        dispatch({ type: 'GET_PRODUCT' });
     }, []);
 
     return (
-    <main>
-    <h1>Product List</h1>
-    <section className="product">
-        {product.map((product) => {
-            return (
-                <div key={product.id} >
-                <h3>PRODUCT NAME: {product.name}</h3>
-                <p>AMOUNT: {product.amount}{product.amount_type}</p> 
-                <p>TYPE: {product.type}</p>
-                <p>PAR: {product.par}</p>
-                <p>EXPECTED AMOUNT: {product.expected_amount}</p>
-            </div>
-            );
-        })}
-    </section>
-</main>
+        <>
+        <main>
+            <h1>Product List</h1>
+            <section className="product">
+                {product.map((product, i) => {
+                    return (
+                        <ProductItem
+                            id={i}
+                            product={product} />
+                    );
+                })}
+            </section>
+            <button>Add Product "Dummy"</button>
+        </main>
+        </>
     )
 }
 

@@ -27,7 +27,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post('/addProduct', (req, res) => {
+router.post('/', (req, res) => {
   // endpoint functionality
 
   //req.user.id is the currently logged in user's id: 
@@ -47,5 +47,22 @@ pool
     res.sendStatus(500);
   });
 });
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    // endpoint functionality
+    const id = [req.params.id]
+    const queryText = (`DELETE FROM "product_list"
+                      WHERE "product_list".id = $1;`)
+    pool
+      .query(queryText, id)
+      .then((response) => {
+        console.log('Deleted')
+        res.sendStatus(200);
+      })
+      .catch ((error) => {
+      console.log('Error in DELETE:', error);
+      res.sendStatus(500);
+    });
+  });
 
 module.exports = router;

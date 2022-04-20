@@ -5,10 +5,10 @@ function* addProduct(action) {
     //add movie to DB
     try{
         console.log('Payload in addProduct:', action.payload);
-        const details = yield axios.post('/api/product/addProduct', action.payload)
+        const details = yield axios.post('/api/product', action.payload)
         console.log('added product:', details.data)
     } catch (error) {
-        console.log('addMovie error:', error)
+        console.log('addProduct error:', error)
     }
 }
 
