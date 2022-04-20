@@ -28,7 +28,41 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  // endpoint functionality
+
+  //req.user.id is the currently logged in user's id: 
+  //this is NOT sent on params, it is on the server
+  const queryValues = [req.body.name, req.body.amount, req.body.amount_type, req.body.size,  req.body.type, req.body.par, req.body.image, req.body.expected_amount]
+
+  const queryText = `
+  INSERT INTO "product_list" 
+  ("name", "amount", "amount_type", "size", "type", "par", "image", "expected_amount")
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+
+pool
+  .query(queryText, queryValues)
+  .then(() => {res.sendStatus(201)})
+  .catch((err) => {
+    console.log('error posting item', err);
+    res.sendStatus(500);
+  });
 });
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    // endpoint functionality
+    const id = [req.params.id]
+    const queryText = (`DELETE FROM "product_list"
+                      WHERE "product_list".id = $1;`)
+    pool
+      .query(queryText, id)
+      .then((response) => {
+        console.log('Deleted')
+        res.sendStatus(200);
+      })
+      .catch ((error) => {
+      console.log('Error in DELETE:', error);
+      res.sendStatus(500);
+    });
+  });
 
 module.exports = router;
