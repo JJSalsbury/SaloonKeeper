@@ -69,8 +69,15 @@ function App() {
             exact
             path="/product"
           >
-            <AddProductForm />
             <ProductList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/addproduct"
+          >
+            <AddProductForm />
           </ProtectedRoute>
 
           <ProtectedRoute
