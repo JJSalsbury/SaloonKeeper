@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 import { applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 
 const newProductForm = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     //Initial state is an OBJECT, with keys id and name
     let [newProduct, setProduct] = useState({ name: '', amount: '', amount_type: '', size: '', type:'', par: '', image: '', expected_amount: ''});
@@ -58,11 +61,12 @@ const newProductForm = () => {
         setProduct({ ...newProduct, expected_amount: event.target.value })
     }
 
-    const addNewProduct = event => {
+    const addNewProduct = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
         //updates the next plant to have a new id
         setProduct({ name: '', amount: '', amount_type: '', size: '', type:'', par: '', image: '', expected_amount: ''});
+        history.push('/product')
     }
     return (
         <div>
