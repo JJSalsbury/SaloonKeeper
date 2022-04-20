@@ -64,7 +64,7 @@ const newProductForm = () => {
     const addNewProduct = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
-        //updates the next plant to have a new id
+        //updates the next product to have a new id
         setProduct({ name: '', amount: '', amount_type: '', size: '', type:'', par: '', image: '', expected_amount: ''});
         history.push('/product')
     }
