@@ -21,10 +21,11 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ProductList from '../ProductList/ProductList';
 import AddProductForm from '../AddProductForm/AddProductForm';
-
+import EditProductForm from '../EditProductForm/EditProductForm';
 
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -78,6 +79,14 @@ function App() {
             path="/addproduct"
           >
             <AddProductForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/editproduct/:id"
+          >
+            <EditProductForm />
           </ProtectedRoute>
 
           <ProtectedRoute

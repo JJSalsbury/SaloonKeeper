@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 
-const newProductForm = () => {
+const addProductForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -61,7 +61,7 @@ const newProductForm = () => {
         setProduct({ ...newProduct, expected_amount: event.target.value })
     }
 
-    const addNewProduct = (event) => {
+    const addProduct = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
         //updates the next product to have a new id
@@ -72,7 +72,7 @@ const newProductForm = () => {
         <div>
             <h3>Add New Product Form</h3>
             {/* <pre>{JSON.stringify(newProduct)}</pre> */}
-            <form onSubmit={addNewProduct}>
+            <form onSubmit={addProduct}>
                 <input type='text' placeholder='name' value={newProduct.name} onChange={handleNameChange}/>
                 <input type='text' placeholder='amount' value={newProduct.amount} onChange={handleAmountChange}/>
                 <input type='text' placeholder='amount type' value={newProduct.amount_type} onChange={handleAmountTypeChange}/>
@@ -88,4 +88,4 @@ const newProductForm = () => {
 }
 
 
-export default newProductForm;
+export default addProductForm;

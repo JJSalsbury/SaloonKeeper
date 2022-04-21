@@ -65,4 +65,34 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     });
   });
 
+ // PUT request -> updates database with edited product data
+router.put('/:productId', (req, res) => {
+
+  const id = req.params.productId;
+  const product = req.body;
+  console.log('id & product:', id, product);
+  
+  const queryText = `UPDATE "product_list"
+                 SET "name" = $1,
+                     "amount" = $2,
+                     "amount_type" = $3,
+                     "size" = $4,
+                     "type" = $5,
+                     "par" = $6,
+                     "image" = $7,
+                     "expected_amount" = $8
+                 WHERE "id" = $9;
+  `;
+  const values = [req.body.name, req.body.amount, req.body.amount_type, req.body.size,  req.body.type, req.body.par, req.body.image, req.body.expected_amount, req.body.id];
+
+  pool.query(queryText, values)
+  .then( result => {
+    res.sendStatus(201);
+  })
+  .catch( error => {
+    console.log('server PUT', error)
+    res.sendStatus(500);
+  })
+}); 
+
 module.exports = router;
