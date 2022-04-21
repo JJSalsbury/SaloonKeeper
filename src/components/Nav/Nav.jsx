@@ -40,6 +40,10 @@ function Nav() {
               Add Product Page
             </Link>
 
+            <Link className="navLink" to="/editproduct/:id">
+              Edit Product Page
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}
