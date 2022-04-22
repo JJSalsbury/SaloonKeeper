@@ -7,7 +7,7 @@ function ProductItem({product}) { //item coming from .map on ProductList
     const dispatch = useDispatch();
     const history = useHistory();
     // const user = useSelector(store => store.user);
-    console.log(product);
+    console.log('ProductItem component:', product);
 
     const handleDelete = () => {
         dispatch({ type: 'DELETE_ITEM', payload: product.id }) //sends item id to saga with delete request
@@ -30,7 +30,7 @@ function ProductItem({product}) { //item coming from .map on ProductList
             <h1>Product Details</h1>
                 <div key={product.id} >
                 <h3>PRODUCT NAME: {product.name}</h3>
-                <p>AMOUNT: {product.amount}{product.amount_type}</p> 
+                <p>UNIT/SIZE: {product.amount}{product.amount_type}</p> 
                 <p>TYPE: {product.type}</p>
                 <p>PAR: {product.par}</p>
                 <p>EXPECTED AMOUNT: {product.expected_amount}</p>

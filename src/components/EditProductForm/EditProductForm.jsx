@@ -7,9 +7,9 @@ import { useState, useEffect } from 'react';
 function editProductForm() {
     const id = useParams().id;
 
-    useEffect(() => {
-        dispatch({ type: 'GET_PRODUCT', payload: id });
-    }, []);
+    // useEffect(() => {
+    //     dispatch({ type: 'GET_PRODUCT', payload: id });
+    // }, []);
 
     // const productDetails = useSelector(store => store.productReducer);
     const editItem = useSelector(store => store.editReducer);
