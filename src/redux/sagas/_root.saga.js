@@ -6,6 +6,8 @@ import productSaga from './product.saga';
 import addProductSaga from './addProduct.saga';
 import deleteProductSaga from './deleteProduct.saga';
 import editProductSaga from './editProduct.saga';
+import countSaga from './count.saga';
+import addCountSaga from './addCount.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -22,6 +24,8 @@ export default function* rootSaga() {
     productSaga(),
     addProductSaga(),
     deleteProductSaga(),
-    editProductSaga()
+    editProductSaga(),
+    countSaga(),
+    addCountSaga()
   ]);
 }

@@ -5,9 +5,8 @@ function* getProduct() {
     // get all movies from the DB
     try {
         const product = yield axios.get('/api/product');
-        console.log('get all:', product.data);
         yield put({ type: 'SET_PRODUCT', payload: product.data });
-
+        console.log('get PRODUCT saga:', product.data);
     } catch {
         console.log('get all error');
     }

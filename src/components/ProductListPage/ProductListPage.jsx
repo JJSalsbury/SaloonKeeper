@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // import newProductForm from '../newProductForm/newProductForm';
 import ProductItem from '../ProductItem/ProductItem';
 import { useHistory } from 'react-router-dom';
+import AddCountForm from '../AddCountForm/AddCountForm';
 
-function ProductList() {
+function ProductListPage() {
 
     const dispatch = useDispatch();
     const product = useSelector(store => store.productReducer);
@@ -26,17 +27,17 @@ function ProductList() {
             <button onClick={addProduct}>Add Product</button>
             <section className="product">
                 {product.map((product, i) => {
-                    return (
+                    return (                        
                         <ProductItem
                             id={i}
                             product={product} />
+
                     );
                 })}
             </section>
-            
         </main>
         </>
     )
 }
 
-export default ProductList;
+export default ProductListPage;

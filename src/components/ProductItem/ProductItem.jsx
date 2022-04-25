@@ -23,6 +23,12 @@ function ProductItem({product}) { //item coming from .map on ProductList
         history.push(`/editproduct/${product.id}`);
     }
 
+    const countProduct = () => {
+        dispatch({ type: 'COUNT_ITEM', payload: product})
+        console.log('addCount clicked');
+        history.push(`/addcount/${product.id}`);
+        // history.push(`/addcount/${product.id}`);
+    }
 
     return (
         <>
@@ -36,6 +42,7 @@ function ProductItem({product}) { //item coming from .map on ProductList
                 <p>EXPECTED AMOUNT: {product.expected_amount}</p>
                 <button onClick={handleDelete}>Delete Product</button>
                 <button onClick={editProduct}>Edit Product</button>
+                <button onClick={countProduct}>Start Count</button>
             </div>
         </main>
         </>
