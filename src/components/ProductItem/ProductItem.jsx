@@ -47,5 +47,6 @@ function ProductItem({product}) { //item coming from .map on ProductList
         </main>
     );
 }
+};
 
 export default ProductItem;
