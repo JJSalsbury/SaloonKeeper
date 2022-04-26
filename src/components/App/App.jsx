@@ -19,10 +19,12 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import ProductList from '../ProductList/ProductList';
+import ProductListPage from '../ProductListPage/ProductListPage';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import EditProductForm from '../EditProductForm/EditProductForm';
-
+import CountPage from '../CountPage/CountPage';
+import OrderReceivedForm from '../OrderReceivedForm/OrderReceivedForm'
+import AddCountForm from '../AddCountForm/AddCountForm';
 
 import './App.css';
 
@@ -70,8 +72,25 @@ function App() {
             exact
             path="/product"
           >
-            <ProductList />
+            <ProductListPage />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/count"
+          >
+            <CountPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/addcount/:id"
+          >
+            <AddCountForm />
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -88,6 +107,16 @@ function App() {
           >
             <EditProductForm />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/addorder/:id"
+          >
+            <OrderReceivedForm /> 
+            {/* replace with new component! */}
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

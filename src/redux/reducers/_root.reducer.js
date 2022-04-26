@@ -4,6 +4,9 @@ import user from './user.reducer';
 
 import productReducer from './product.reducer';
 import editReducer from './edit.reducer';
+import setCountReducer from './setCount.reducer';
+import inventoryReducer from './inventory.reducer';
+import setNewCountReducer from './setNewCount.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,7 +18,10 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
   productReducer, // will have an id and username if someone is logged in
-  editReducer
+  editReducer,
+  setCountReducer,
+  inventoryReducer,
+  setNewCountReducer
 });
 
 export default rootReducer;
