@@ -23,8 +23,8 @@ import ProductListPage from '../ProductListPage/ProductListPage';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import EditProductForm from '../EditProductForm/EditProductForm';
 import CountPage from '../CountPage/CountPage';
-import AddCountForm from '../AddCountForm/AddCountForm'
-
+import OrderReceivedForm from '../OrderReceivedForm/OrderReceivedForm'
+import AddCountForm from '../AddCountForm/AddCountForm';
 
 import './App.css';
 
@@ -107,6 +107,16 @@ function App() {
           >
             <EditProductForm />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/addorder/:id"
+          >
+            <OrderReceivedForm /> 
+            {/* replace with new component! */}
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

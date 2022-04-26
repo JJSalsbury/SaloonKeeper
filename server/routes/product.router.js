@@ -66,9 +66,9 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   });
 
  // PUT request -> updates database with edited product data
-router.put('/:productId', (req, res) => {
+router.put('/:id', (req, res) => {
 
-  const id = req.params.productId;
+  const id = req.params.id;
   const product = req.body;
   console.log('id & product:', id, product);
   

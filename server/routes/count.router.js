@@ -46,11 +46,56 @@ router.post('/', (req, res) => {
     .then(() => {res.sendStatus(201)})
     .catch((err) => {
       console.log('error posting item', err);
+      
       res.sendStatus(500);
     });
   });
+  
 
+  //PUT Route
+// PUT request -> updates database with edited product data
+router.put('/:id', (req, res) => {
 
+  const productCount = req.body;
+  console.log('req.body:', productCount);
+  
+  const queryText = `UPDATE "product_count"
+                 SET "user_id" = $1,
+                     "create_date" = $2,
+                     "current_count" = $3
+                 WHERE "product_id" = $4;
+  `;
+  
+  const values = [req.user.id, req.body.create_date, req.body.current_count, req.body.product_id];
+  console.log('query values from PUT Route:',values);
+  
+  pool.query(queryText, values)
+  .then( result => {
+    res.sendStatus(201);
+  })
+  .catch( error => {
+    console.log('server PUT', error)
+    res.sendStatus(500);
+  })
+});
+
+//DELETE Route
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  // endpoint functionality
+  const id = [req.params.id]
+  const queryText = (`DELETE FROM "product_count"
+                    WHERE "product_id" = $1;`)
+  pool
+    .query(queryText, id)
+    .then((response) => {
+      console.log('Deleted')
+      res.sendStatus(200);
+    })
+    .catch ((error) => {
+    console.log('Error in DELETE:', error);
+    res.sendStatus(500);
+  });
+});
 
 
 

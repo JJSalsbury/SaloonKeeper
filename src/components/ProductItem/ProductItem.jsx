@@ -23,18 +23,19 @@ function ProductItem({product}) { //item coming from .map on ProductList
         history.push(`/editproduct/${product.id}`);
     }
 
-    const countProduct = () => {
-        dispatch({ type: 'COUNT_ITEM', payload: product})
+    const orderReceived = () => {
+        dispatch({ type: 'ORDER_RECEIVED', payload: product})
         console.log('addCount clicked');
-        history.push(`/addcount/${product.id}`);
+        history.push(`/addorder/${product.id}`);
         // history.push(`/addcount/${product.id}`);
     }
 
     return (
-        <>
-        <main>
+    
+        <main key={product.id} >
             <h1>Product Details</h1>
-                <div key={product.id} >
+                <div>
+                <p>Product Id: {product.id}</p>
                 <h3>PRODUCT NAME: {product.name}</h3>
                 <p>UNIT/SIZE: {product.amount}{product.amount_type}</p> 
                 <p>TYPE: {product.type}</p>
@@ -42,10 +43,9 @@ function ProductItem({product}) { //item coming from .map on ProductList
                 <p>EXPECTED AMOUNT: {product.expected_amount}</p>
                 <button onClick={handleDelete}>Delete Product</button>
                 <button onClick={editProduct}>Edit Product</button>
-                <button onClick={countProduct}>Start Count</button>
-            </div>
+                <button onClick={orderReceived}>Order Received</button>
+                </div>
         </main>
-        </>
     );
 }
 

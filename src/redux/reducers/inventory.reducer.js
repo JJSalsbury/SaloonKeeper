@@ -1,10 +1,7 @@
 // Used to store shelf items returned from the server
-const countReducer = (state = [], action) => {
+const inventoryReducer = (state = {}, action) => {
     switch(action.type) {
-        case 'COUNT_ITEM': 
-        // action.payload is the object from the DB
-        return action.payload;
-        case 'SET_COUNT': 
+        case 'ORDER_RECEIVED': 
         // action.payload is the object from the DB
         return action.payload;
         
@@ -14,4 +11,4 @@ const countReducer = (state = [], action) => {
     };
 
 
-export default countReducer;
+export default inventoryReducer;

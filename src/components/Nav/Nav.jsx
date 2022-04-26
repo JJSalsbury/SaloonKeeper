@@ -40,7 +40,7 @@ function Nav() {
               Add Product Page
             </Link>
 
-            <Link className="navLink" to="/editproduct/:id">
+            <Link className="navLink" to="/editproduct">
               Edit Product Page
             </Link>
 
@@ -48,7 +48,7 @@ function Nav() {
               Count Page
             </Link>
 
-            <Link className="navLink" to="/addcount/:id">
+            <Link className="navLink" to="/addcount">
               Add Count Page
             </Link>
 

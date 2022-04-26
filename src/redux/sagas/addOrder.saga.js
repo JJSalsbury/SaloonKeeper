@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* addCount(action) {
+function* addOrder(action) {
     //add movie to DB
     try{
-        console.log('Payload in addCount SAGA:', action.payload);
+        console.log('Payload in addOrder SAGA:', action.payload);
         const product = yield axios.post('/api/count', action.payload)
         console.log('added count:', product.data)
     } catch (error) {
@@ -12,9 +12,9 @@ function* addCount(action) {
     } 
 }
 
-function* addCountSaga() {
+function* addOrderSaga() {
     // yield takeLatest('COUNT_ITEM', addCount);
-    yield takeLatest('ADD_COUNT', addCount)
+    yield takeLatest('ADD_ORDER', addOrder)
 }
 
-export default addCountSaga;
+export default addOrderSaga;
