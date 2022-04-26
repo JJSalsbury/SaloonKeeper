@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 // import newProductForm from '../newProductForm/newProductForm';
 import ProductItem from '../ProductItem/ProductItem';
 import { useHistory } from 'react-router-dom';
+import AddCountForm from '../OrderReceivedForm/OrderReceivedForm';
 
-function ProductList() {
+function ProductListPage() {
 
     const dispatch = useDispatch();
-    const product = useSelector(store => store.productReducer);
+    const ProductList = useSelector(store => store.productReducer);
     const history = useHistory();
 
     useEffect(() => {
@@ -25,18 +26,18 @@ function ProductList() {
             <h1>Product List</h1>
             <button onClick={addProduct}>Add Product</button>
             <section className="product">
-                {product.map((product, i) => {
-                    return (
+                {ProductList.map((product, i) => {
+                    return (                        
                         <ProductItem
-                            id={i}
+                            key={i}
                             product={product} />
+
                     );
                 })}
             </section>
-            
         </main>
         </>
     )
 }
 
-export default ProductList;
+export default ProductListPage;
