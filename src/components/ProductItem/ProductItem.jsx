@@ -11,7 +11,7 @@ function ProductItem({product}) { //item coming from .map on ProductList
 
     const handleDelete = () => {
         dispatch({ type: 'DELETE_ITEM', payload: product.id }) //sends item id to saga with delete request
-
+    }
     // const handleClick = () => {
     //     dispatch({ type: 'ADD_PRODUCT', payload: product.id }) //sends item id to saga with delete request
     // }
@@ -47,6 +47,6 @@ function ProductItem({product}) { //item coming from .map on ProductList
         </main>
     );
 }
-};
+
 
 export default ProductItem;

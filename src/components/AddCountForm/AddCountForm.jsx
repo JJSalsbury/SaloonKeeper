@@ -63,7 +63,8 @@ const AddCountForm = ({count}) => {
             })
             .catch(error => {
                 console.log('error on PUT: ', error);
-            })   
+            }) 
+             history.push('/count'); 
       };
 
 
