@@ -58,13 +58,13 @@ const addProductForm = () => {
         dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
         //updates the next product to have a new id
         setProduct({ name: '', amount: '', size: '', type: '', par: '', image: '', expected_amount: '' });
-        
+
         swal({
             title: "Product Added!",
             text: "You added a new product to the Product Inventory List!",
             icon: "success",
             button: "Back To List",
-          });
+        });
 
         history.push('/product')
     }
@@ -85,9 +85,16 @@ const addProductForm = () => {
                     value={newProduct.name} onChange={handleNameChange} />
 
                 <TextField
+                    id="filled-helperText"
+                    helperText="Set Product Amount"
+                    label="Number"
+                    variant="filled"
+                    value={newProduct.size} onChange={handleSizeChange} />
+
+                <TextField
                     id="filled-number"
                     helperText="Set Product Volume"
-                    label="Number"
+                    label="Unit/Volume"
                     type="number"
                     InputLabelProps={{
                         shrink: true,
@@ -108,17 +115,11 @@ const addProductForm = () => {
                         <MenuItem value='7'>Wine</MenuItem>
                     </Select>
                 </FormControl> */}
-                <TextField
-                    id="filled-helperText"
-                    helperText="Set Product Size"
-                    label="Product Size"
-                    variant="filled"
-                    value={newProduct.size} onChange={handleSizeChange} />
 
                 <TextField
                     id="filled-helperText"
-                    helperText="Set Amount Type"
-                    label="Amount Type"
+                    helperText="Type"
+                    label="Product Type"
                     variant="filled"
                     value={newProduct.type} onChange={handleTypeChange} />
 
@@ -132,7 +133,7 @@ const addProductForm = () => {
                 <TextField
                     id="filled-helperText"
                     helperText="Set Amount Expected"
-                    label="Amount Expected"
+                    label="Ordered Amount"
                     variant="filled"
                     value={newProduct.expected_amount} onChange={handleExpectedAmountChange} />
 
