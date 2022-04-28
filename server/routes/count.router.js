@@ -13,7 +13,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
   
     const queryText = `SELECT "product_count".id, "product_count".product_id, "product_count".user_id, "product_count".create_date, "product_count".current_count, "product_list".name
     FROM "product_count"
-    JOIN "product_list" ON "product_list".id = "product_count".product_id;`;
+    JOIN "product_list" ON "product_list".id = "product_count".product_id
+    ORDER BY "product_count".product_id ASC;`;
   
     pool.query(queryText).then((result) => {
       // console.log('results', result.rows)
