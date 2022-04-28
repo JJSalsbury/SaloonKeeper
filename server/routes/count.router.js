@@ -11,7 +11,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
     console.log('is authenticated?', req.isAuthenticated());
   
   
-    const queryText = `SELECT * FROM "product_count"`;
+    const queryText = `SELECT "product_count".id, "product_count".product_id, "product_count".user_id, "product_count".create_date, "product_count".current_count, "product_list".name
+    FROM "product_count"
+    JOIN "product_list" ON "product_list".id = "product_count".product_id;`;
   
     pool.query(queryText).then((result) => {
       // console.log('results', result.rows)

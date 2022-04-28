@@ -1,0 +1,17 @@
+.icon {
+    max-width: 100px;
+    max-height: 100;
+}
+
+.pageTitle {
+    display: flex;
+}
+
+.addProductBtn {
+    float: right;
+    margin-top: 25px;
+    margin-right: 25px;
+    font-size: medium;
+    font-weight: bold;
+    padding: 1em;
+}
