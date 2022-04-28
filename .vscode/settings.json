@@ -3,6 +3,8 @@
         "addcount",
         "addorder",
         "addproduct",
-        "editproduct"
+        "editproduct",
+        "swal",
+        "sweetalert"
     ]
 }

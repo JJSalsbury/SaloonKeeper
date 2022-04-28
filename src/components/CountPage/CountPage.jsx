@@ -59,21 +59,21 @@ function CountPage() {
     return (
         <main>
             <div className="pageTitle">
-            <h1>Product Count</h1>
-            <img src="images/SaloonKeeperLogo1024_1.png" class="icon" />
+            <h1>Product Count Page</h1>
+            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
             <section className="count">
             <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
             <TableHead>
-                <TableRow>
+                <StyledTableRow>
                     <StyledTableCell align="center">Product Id</StyledTableCell>
                     <StyledTableCell align="center">Product Name</StyledTableCell>
                     <StyledTableCell align="center">Counted By</StyledTableCell>
                     <StyledTableCell align="center">Current Count</StyledTableCell>
                     <StyledTableCell align="center">Count Date</StyledTableCell>
                     <StyledTableCell align="center">Start New Count</StyledTableCell>
-            </TableRow>
+            </StyledTableRow>
             </TableHead>
             <TableBody>
             {countList.map((count, i) => {

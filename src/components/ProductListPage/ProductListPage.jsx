@@ -59,7 +59,7 @@ function ProductListPage() {
             <h1>Product Inventory List</h1>
             <img src="images/SaloonKeeperLogo1024_1.png" class="icon" />
             </div>
-            <section className="product">
+            <section className="productTable">
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
@@ -87,7 +87,7 @@ function ProductListPage() {
                     </Table>
                 </TableContainer>
             </section>
-            <button className="addProductBtn" onClick={addProduct}>Add New Product</button>
+            <button className="productBtn" onClick={addProduct}>Add New Product</button>
         </main>
         
     )

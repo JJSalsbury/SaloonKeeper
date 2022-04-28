@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import editProductForm from '../EditProductForm/EditProductForm';
 import { useHistory } from 'react-router-dom';
 
 import React from 'react';
-// import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-// import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import swal from 'sweetalert';
 import { Paper } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -14,8 +11,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-// import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
-// import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
 import { DeleteTwoTone, EditTwoTone, LocalBar } from '@material-ui/icons';
 
 
@@ -54,24 +49,27 @@ function ProductItem({ product }) { //item coming from .map on ProductList
     //sends item id to saga with delete request
     const handleDelete = () => {
 
-        dispatch({ type: 'DELETE_ITEM', payload: product.id })
+        
 
-        // swal({
-        //     title: "Are you sure?",
-        //     text: "Once deleted, you will have to create a new product to add the the Product Inventory List.",
-        //     icon: "warning",
-        //     buttons: true,
-        //     dangerMode: true,
-        //   })
-        //   .then((willDelete) => {
-        //     if (willDelete) {
-        //       swal("The product item has been deleted from the Product Inventory List.", {
-        //         icon: "success",
-        //       });
-        //     } else {
-        //       swal("Your product has NOT been deleted from the Product Inventory List.");
-        //     }
-        //   });
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will have to create a new product to add the the Product Inventory List.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("The product item has been deleted from the Product Inventory List.", {
+                icon: "success",
+                
+              });
+              {dispatch({ type: 'DELETE_ITEM', payload: product.id })}
+            } else {
+              swal("Your product has NOT been deleted from the Product Inventory List.");
+            }
+          });
+        
         history.push(`/product/`)
     }
 
@@ -89,7 +87,7 @@ function ProductItem({ product }) { //item coming from .map on ProductList
 
     return (
 
-        <TableRow>
+        <StyledTableRow>
             <StyledTableCell align="center">{product.id}</StyledTableCell>
             <StyledTableCell align="center">{product.name}</StyledTableCell>
             <StyledTableCell align="center">{product.amount} {product.size}</StyledTableCell>
@@ -99,7 +97,7 @@ function ProductItem({ product }) { //item coming from .map on ProductList
             <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell>
             <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone/></button></StyledTableCell>
             <StyledTableCell align="center"><button onClick={orderReceived}><LocalBar/></button></StyledTableCell>
-        </TableRow>
+        </StyledTableRow>
     );
 }
 

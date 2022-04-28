@@ -76,7 +76,7 @@ const AddCountForm = ({count}) => {
             <p>Product Name: {itemToCount.name}</p>
             <form onSubmit={handleSubmit}>
                 <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
-                <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date}/>
+                <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
 
                 <input type='submit' value='Add To Inventory' />
             </form>

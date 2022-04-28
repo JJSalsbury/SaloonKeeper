@@ -84,14 +84,14 @@ function CountItem({count}) { //item coming from .map on CountList
 
     return (
 
-                <TableRow>
+                <StyledTableRow>
                     <StyledTableCell align="center">{count.product_id}</StyledTableCell>
                     <StyledTableCell align="center">{count.name}</StyledTableCell>
                     <StyledTableCell align="center">{count.user_id}</StyledTableCell>
                     <StyledTableCell align="center">{count.current_count}</StyledTableCell>
                     <StyledTableCell align="center">{count.create_date}</StyledTableCell>
                     <StyledTableCell align="center"><button onClick={newCount}><LibraryAddCheckIcon/></button></StyledTableCell>
-                </TableRow>
+                </StyledTableRow>
 
     );
 }

@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import swal from 'sweetalert';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,9 +45,9 @@ const addProductForm = () => {
         setProduct({ ...newProduct, par: event.target.value })
     }
 
-    const handleImageChange = (event) => {
-        setProduct({ ...newProduct, image: event.target.value })
-    }
+    // const handleImageChange = (event) => {
+    //     setProduct({ ...newProduct, image: event.target.value })
+    // }
 
     const handleExpectedAmountChange = (event) => {
         setProduct({ ...newProduct, expected_amount: event.target.value })
@@ -56,12 +58,23 @@ const addProductForm = () => {
         dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
         //updates the next product to have a new id
         setProduct({ name: '', amount: '', size: '', type: '', par: '', image: '', expected_amount: '' });
-        // history.push('/product')
+        
+        swal({
+            title: "Product Added!",
+            text: "You added a new product to the Product Inventory List!",
+            icon: "success",
+            button: "Back To List",
+          });
+
+        history.push('/product')
     }
     return (
         <div>
-            <h1>Add New Product Form</h1>
-            {/* <pre>{JSON.stringify(newProduct)}</pre> */}
+            <div className="pageTitle">
+                <h1>Add New Product Form</h1>
+                {/* <pre>{JSON.stringify(newProduct)}</pre> */}
+                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+            </div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={addProduct}>
 
                 <TextField
@@ -71,7 +84,7 @@ const addProductForm = () => {
                     variant="filled"
                     value={newProduct.name} onChange={handleNameChange} />
 
-                    <TextField
+                <TextField
                     id="filled-number"
                     helperText="Set Product Volume"
                     label="Number"
@@ -80,7 +93,7 @@ const addProductForm = () => {
                         shrink: true,
                     }}
                     variant="filled"
-                    value={newProduct.amount} onChange={handleAmountChange} /> 
+                    value={newProduct.amount} onChange={handleAmountChange} />
                 {/* 
                     <FormControl style={{minWidth: 150}}>
                     <InputLabel id='InputLabel'>Amount Type</InputLabel>

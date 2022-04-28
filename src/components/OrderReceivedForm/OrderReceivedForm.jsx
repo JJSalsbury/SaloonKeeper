@@ -38,8 +38,16 @@ const OrderReceivedForm = ({count}) => {
         setCurrentCount('');
         setCreateDate('');
 
+        swal({
+            title: "Inventory Added!",
+            text: "You added inventory to a product on the Product Inventory List!",
+            icon: "success",
+            button: "Back Count",
+          });
+
         history.push('/count');
     }
+    
 
     return (
         <div>
