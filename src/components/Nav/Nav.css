@@ -14,8 +14,9 @@
 }
 
 .nav-title {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 600;
+  font-style: italic;
   color: black;
   padding-left: 10px;
   margin: 0;

@@ -15,6 +15,7 @@ import { DeleteTwoTone, EditTwoTone, LocalBar } from '@material-ui/icons';
 import './ProductItem.css';
 
 
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: theme.palette.common.black,
@@ -40,17 +41,15 @@ const useStyles = makeStyles({
 });
 
 function ProductItem({ product }) { //item coming from .map on ProductList 
-
+    
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
-    // const user = useSelector(store => store.user);
+    const user = useSelector(store => store.user);
     console.log('ProductItem component:', product);
 
     //sends item id to saga with delete request
     const handleDelete = () => {
-
-        
 
         swal({
             title: "Are you sure?",
@@ -71,7 +70,7 @@ function ProductItem({ product }) { //item coming from .map on ProductList
             }
           });
         
-        history.push(`/product/`)
+        history.push(`/product/`);
     }
 
     const editProduct = () => {
@@ -86,7 +85,13 @@ function ProductItem({ product }) { //item coming from .map on ProductList
         history.push(`/addorder/${product.id}`)
     }
 
-
+    const evaluateUser = () => {
+        if (user.access_level === 1) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     return (
 
@@ -94,15 +99,31 @@ function ProductItem({ product }) { //item coming from .map on ProductList
             <StyledTableCell align="center">{product.id}</StyledTableCell>
             <StyledTableCell align="center"><img className="imageItem" src={product.image} /></StyledTableCell>
             <StyledTableCell align="center">{product.name}</StyledTableCell>
-            <StyledTableCell align="center">{product.amount} {product.size}</StyledTableCell>
+            <StyledTableCell align="center">{product.amount} {product.unit_type}</StyledTableCell>
             <StyledTableCell align="center">{product.type}</StyledTableCell>
             <StyledTableCell align="center">{product.par}</StyledTableCell>
-            <StyledTableCell align="center">{product.expected_amount}</StyledTableCell>
-            <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell>
-            <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone /></button></StyledTableCell>
+            <StyledTableCell align="center" >{product.expected_amount}</StyledTableCell>
+            {evaluateUser() ? <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell> : <div></div>}
+            {evaluateUser() ? <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone /></button></StyledTableCell> : <div></div>}
             <StyledTableCell align="center">{ product.product_ordered ? <button onClick={orderReceived}><LocalBar color="primary"/></button> : <button onClick={orderReceived}><LocalBar color="secondary"/></button>}</StyledTableCell>
         </StyledTableRow>
     );
 }
 
 export default ProductItem;
+
+
+/*
+// if user access level is 2, return button delete , else will return nothing. 
+{ user.access_level === 2 ?
+
+
+<button onClick={handleDelete}
+
+:
+
+<div></div>
+
+}
+
+*/

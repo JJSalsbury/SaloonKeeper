@@ -6,3 +6,11 @@
 .pageTitle {
     display: flex;
 }
+
+.productForm {
+    display: flex;
+}
+
+.swal-text {
+    text-align: center;
+}

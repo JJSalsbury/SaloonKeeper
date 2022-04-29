@@ -32,11 +32,11 @@ router.post('/', (req, res) => {
 
   //req.user.id is the currently logged in user's id: 
   //this is NOT sent on params, it is on the server
-  const queryValues = [req.body.name, req.body.amount, req.body.size,  req.body.type, req.body.par, req.body.image, req.body.expected_amount]
+  const queryValues = [req.body.name, req.body.amount, req.body.unit_type,  req.body.type, req.body.par, req.body.image, req.body.expected_amount]
 
   const queryText = `
   INSERT INTO "product_list" 
-  ("name", "amount", "size", "type", "par", "image", "expected_amount")
+  ("name", "amount", "unit_type", "type", "par", "image", "expected_amount")
   VALUES ($1, $2, $3, $4, $5, $6, $7)`;
 
 pool
@@ -75,14 +75,14 @@ router.put('/:id', (req, res) => {
   const queryText = `UPDATE "product_list"
                  SET "name" = $1,
                      "amount" = $2,
-                     "size" = $3,
+                     "unit_type" = $3,
                      "type" = $4,
                      "par" = $5,
                      "image" = $6,
                      "expected_amount" = $7
                  WHERE "id" = $8;
   `;
-  const values = [req.body.name, req.body.amount, req.body.size,  req.body.type, req.body.par, req.body.image, req.body.expected_amount, req.body.id];
+  const values = [req.body.name, req.body.amount, req.body.unit_type,  req.body.type, req.body.par, req.body.image, req.body.expected_amount, req.body.id];
 
   pool.query(queryText, values)
   .then( result => {

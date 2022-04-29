@@ -1,6 +1,7 @@
 import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ProductItem from '../ProductItem/ProductItem';
+import AddProductForm from '../AddProductForm/AddProductForm';
 import { useHistory } from 'react-router-dom';
 import { Paper } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
 
 
 function ProductListPage() {
-
+    const user = useSelector(store => store.user);
     const dispatch = useDispatch();
     const productList = useSelector(store => store.productReducer);
     const history = useHistory();
@@ -51,6 +52,14 @@ function ProductListPage() {
     const addProduct = () => {
         console.log('addProduct clicked');
         history.push(`/addproduct`);
+    }
+
+    const evaluateUser = () => {
+        if (user.access_level === 1) {
+            return true
+        } else {
+            return false
+        }
     }
 
     return (
@@ -71,8 +80,8 @@ function ProductListPage() {
                                 <StyledTableCell align="center">Product Type</StyledTableCell>
                                 <StyledTableCell align="center">PAR</StyledTableCell>
                                 <StyledTableCell align="center">Expected Amount</StyledTableCell>
-                                <StyledTableCell align="center">Delete Product</StyledTableCell>
-                                <StyledTableCell align="center">Edit Product</StyledTableCell>
+                                {evaluateUser() ? <StyledTableCell align="center">Delete Product</StyledTableCell>:<div></div>}
+                                {evaluateUser() ? <StyledTableCell align="center">Edit Product</StyledTableCell>:<div></div>}
                                 <StyledTableCell align="center">Order Received</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>

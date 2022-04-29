@@ -11,6 +11,7 @@ function Nav() {
     <div className="nav">
       <Link to="/home">
         <h2 className="nav-title">SaloonKeeper</h2>
+        {/* &copy; */}
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
