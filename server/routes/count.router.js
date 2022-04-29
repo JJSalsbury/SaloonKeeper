@@ -87,7 +87,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
   const id = [req.params.id]
   const queryText = (`DELETE FROM "product_count"
-                    WHERE "product_id" = $1;`)
+                    WHERE "product_count".id = $1;`)
   pool
     .query(queryText, id)
     .then((response) => {

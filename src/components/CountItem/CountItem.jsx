@@ -14,7 +14,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
-
+import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -49,11 +49,11 @@ function CountItem({count}) { //item coming from .map on CountList
     // const user = useSelector(store => store.user);
     // console.log('CountItem component:', count);
 
-    // const handleDelete = () => {
-    //     // swal("This product has been removed from the inventory has been deleted")
-    //     dispatch({ type: 'DELETE_ITEM', payload: count.id }) //sends item id to saga with delete request
+    const handleDelete = () => {
+        // swal("This product has been removed from the inventory has been deleted")
+        dispatch({ type: 'DELETE_COUNT', payload: count.id }) //sends item id to saga with delete request
           
-    // }
+    }
 
     // // const handleClick = () => {
     // //     dispatch({ type: 'ADD_PRODUCT', payload: product.id }) //sends item id to saga with delete request
@@ -65,23 +65,6 @@ function CountItem({count}) { //item coming from .map on CountList
         history.push(`/addcount/${count.id}`);
     }
 
-         {/* <TableContainer component={Paper}>
-     <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-                <TableRow>
-                    <StyledTableCell align="right">Product Id</StyledTableCell>
-                    <StyledTableCell align="right">Counted By</StyledTableCell>
-                    <StyledTableCell align="right">Current Count</StyledTableCell>
-                    <StyledTableCell align="right">Count Date</StyledTableCell>
-                    <StyledTableCell align="right">Start New Count</StyledTableCell>
-            </TableRow>
-            </TableHead> 
-          <TableBody> */}
-
-                          {/* </TableBody> 
-        </Table>
- </TableContainer>*/}
-
     return (
 
                 <StyledTableRow>
@@ -91,6 +74,7 @@ function CountItem({count}) { //item coming from .map on CountList
                     <StyledTableCell align="center">{count.current_count}</StyledTableCell>
                     <StyledTableCell align="center">{count.create_date}</StyledTableCell>
                     <StyledTableCell align="center"><button onClick={newCount}><LibraryAddCheckIcon color="primary"/></button></StyledTableCell>
+                    <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone /></button></StyledTableCell>
                 </StyledTableRow>
 
     );

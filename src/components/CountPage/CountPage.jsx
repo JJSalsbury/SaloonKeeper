@@ -73,6 +73,7 @@ function CountPage() {
                     <StyledTableCell align="center">Current Count</StyledTableCell>
                     <StyledTableCell align="center">Count Date</StyledTableCell>
                     <StyledTableCell align="center">Start New Count</StyledTableCell>
+                    <StyledTableCell align="center">Delete Count</StyledTableCell>
             </StyledTableRow>
             </TableHead>
             <TableBody>
