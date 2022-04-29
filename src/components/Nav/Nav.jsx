@@ -33,15 +33,15 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/product">
-              Product Inventory Page
+              Product Inventory
             </Link>
 
             <Link className="navLink" to="/addproduct">
-              Add Product Page
+              Add Product
             </Link>
 
             <Link className="navLink" to="/count">
-              Count Page
+              Product Count
             </Link>
 
             <LogOutButton className="navLink" />

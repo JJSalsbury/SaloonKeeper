@@ -22,7 +22,7 @@ const StyledTableCell = withStyles((theme) => ({
         color: theme.palette.common.white,
     },
     body: {
-        fontSize: 14,
+        fontSize: 17,
     },
 }))(TableCell);
 
@@ -90,7 +90,7 @@ function CountItem({count}) { //item coming from .map on CountList
                     <StyledTableCell align="center">{count.user_id}</StyledTableCell>
                     <StyledTableCell align="center">{count.current_count}</StyledTableCell>
                     <StyledTableCell align="center">{count.create_date}</StyledTableCell>
-                    <StyledTableCell align="center"><button onClick={newCount}><LibraryAddCheckIcon/></button></StyledTableCell>
+                    <StyledTableCell align="center"><button onClick={newCount}><LibraryAddCheckIcon color="primary"/></button></StyledTableCell>
                 </StyledTableRow>
 
     );

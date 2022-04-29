@@ -45,9 +45,9 @@ const addProductForm = () => {
         setProduct({ ...newProduct, par: event.target.value })
     }
 
-    // const handleImageChange = (event) => {
-    //     setProduct({ ...newProduct, image: event.target.value })
-    // }
+    const handleImageChange = (event) => {
+        setProduct({ ...newProduct, image: event.target.value })
+    }
 
     const handleExpectedAmountChange = (event) => {
         setProduct({ ...newProduct, expected_amount: event.target.value })
@@ -137,12 +137,12 @@ const addProductForm = () => {
                     variant="filled"
                     value={newProduct.expected_amount} onChange={handleExpectedAmountChange} />
 
-                {/* <TextField
+                <TextField
                     id="filled-helperText"
                     helperText="Image Url"
                     label="Image Url"
                     variant="filled"
-                    value={newProduct.image} onChange={handleImageChange} /> */}
+                    value={newProduct.image} onChange={handleImageChange} />
 
 
 

@@ -46,6 +46,13 @@ function editProductForm() {
         setPar('');
         setExpectedAmount('');
 
+        swal({
+            title: "Product Added!",
+            text: "This product has been SUCCESSFULLY edited and updated!",
+            icon: "success",
+            button: "Back To List",
+        });
+
         returnToList();
     }
 
@@ -72,7 +79,7 @@ function editProductForm() {
                     <input type='text' placeholder={par} value={par} onChange={(event) => setPar(event.target.value)} />
                     <input type='text' placeholder={expectedAmount} value={expectedAmount} onChange={(event) => setExpectedAmount(event.target.value)} />
                     <input type='submit' value='Update Product' />
-                    <button onClick={returnToList}>Product Inventory List</button>
+                    <button onClick={returnToList}>Cancel Edit</button>
                 </form>
             </div>
         </>

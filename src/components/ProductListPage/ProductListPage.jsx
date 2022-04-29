@@ -18,7 +18,7 @@ const StyledTableCell = withStyles((theme) => ({
         color: theme.palette.common.white,
     },
     body: {
-        fontSize: 14,
+        fontSize: 20,
     },
 }))(TableCell);
 
@@ -57,7 +57,7 @@ function ProductListPage() {
         <main>
             <div className="pageTitle">
             <h1>Product Inventory List</h1>
-            <img src="images/SaloonKeeperLogo1024_1.png" class="icon" />
+            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
             <section className="productTable">
                 <TableContainer component={Paper}>
@@ -65,6 +65,7 @@ function ProductListPage() {
                         <TableHead>
                             <StyledTableRow>
                                 <StyledTableCell align="center">Product Id</StyledTableCell>
+                                <StyledTableCell align="center">Image</StyledTableCell>
                                 <StyledTableCell align="center">Product Name</StyledTableCell>
                                 <StyledTableCell align="center">Unit/Size</StyledTableCell>
                                 <StyledTableCell align="center">Product Type</StyledTableCell>

@@ -19,7 +19,7 @@ const OrderReceivedForm = ({count}) => {
      const [productName, setProductName] = useState(itemToCount.name);
      const [currentCount, setCurrentCount] = useState(itemToCount.current_count);
      const [createDate, setCreateDate] = useState(itemToCount.create_date);
-
+  
         
     const addCount = (event) => {
         event.preventDefault();
@@ -30,6 +30,7 @@ const OrderReceivedForm = ({count}) => {
             product_id: id,
             create_date: createDate,
             current_count: currentCount
+
         }
 
         console.log('count Item:', countedItem);
@@ -39,10 +40,10 @@ const OrderReceivedForm = ({count}) => {
         setCreateDate('');
 
         swal({
-            title: "Inventory Added!",
-            text: "You added inventory to a product on the Product Inventory List!",
+            title: "You've UPDATED a received order!",
+            text: "This product is now available on the Count Page.",
             icon: "success",
-            button: "Back Count",
+            button: "See Count Page",
           });
 
         history.push('/count');

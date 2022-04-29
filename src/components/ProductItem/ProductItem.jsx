@@ -12,6 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { DeleteTwoTone, EditTwoTone, LocalBar } from '@material-ui/icons';
+import './ProductItem.css';
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -20,7 +21,7 @@ const StyledTableCell = withStyles((theme) => ({
         color: theme.palette.common.white,
     },
     body: {
-        fontSize: 14,
+        fontSize: 17,
     },
 }))(TableCell);
 
@@ -53,14 +54,14 @@ function ProductItem({ product }) { //item coming from .map on ProductList
 
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will have to create a new product to add the the Product Inventory List.",
+            text: "Once deleted, this product will be permanently removed from the Product Inventory List.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("The product item has been deleted from the Product Inventory List.", {
+              swal("The product item has been SUCCESSFULLY deleted from the Product Inventory List.", {
                 icon: "success",
                 
               });
@@ -85,18 +86,21 @@ function ProductItem({ product }) { //item coming from .map on ProductList
         history.push(`/addorder/${product.id}`)
     }
 
+
+
     return (
 
-        <StyledTableRow>
+        <StyledTableRow className={classes.table}>
             <StyledTableCell align="center">{product.id}</StyledTableCell>
+            <StyledTableCell align="center"><img className="imageItem" src={product.image} /></StyledTableCell>
             <StyledTableCell align="center">{product.name}</StyledTableCell>
             <StyledTableCell align="center">{product.amount} {product.size}</StyledTableCell>
             <StyledTableCell align="center">{product.type}</StyledTableCell>
             <StyledTableCell align="center">{product.par}</StyledTableCell>
             <StyledTableCell align="center">{product.expected_amount}</StyledTableCell>
             <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell>
-            <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone/></button></StyledTableCell>
-            <StyledTableCell align="center"><button onClick={orderReceived}><LocalBar/></button></StyledTableCell>
+            <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone /></button></StyledTableCell>
+            <StyledTableCell align="center">{ product.product_ordered ? <button onClick={orderReceived}><LocalBar color="primary"/></button> : <button onClick={orderReceived}><LocalBar color="secondary"/></button>}</StyledTableCell>
         </StyledTableRow>
     );
 }
