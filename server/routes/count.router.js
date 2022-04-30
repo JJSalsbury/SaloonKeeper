@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     //req.user.id is the currently logged in user's id: 
     //this is NOT sent on params, it is on the server
     const queryValues = [req.user.id, req.body.product_id, req.body.create_date, req.body.current_count];
-    console.log('queryValues:', queryValues);
+    console.log('COUNT ROUTER POST ROUTE: queryValues:', queryValues);
   
     const queryText = `
     INSERT INTO "product_count" 
@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
 router.put('/:id', rejectUnauthenticated, (req, res) => {
 
   const productCount = req.body;
-  console.log('req.body:', productCount);
+  console.log('COUNT ROUTER PUT ROUTE: req.body:', productCount);
   
   const queryText = `UPDATE "product_count"
                  SET "user_id" = $1,
@@ -71,7 +71,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   `;
   
   const values = [req.user.id, req.body.create_date, req.body.current_count, req.body.product_id];
-  console.log('query values from PUT Route:',values);
+  console.log('COUNT ROUTER PUT ROUTE: query values:',values);
   
   pool.query(queryText, values)
   .then( result => {
@@ -87,6 +87,8 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
   const id = [req.params.id]
+  console.log('COUNT ROUTER PUT ROUTE: query values:', id);
+
   const queryText = (`DELETE FROM "product_count"
                     WHERE "product_count".product_id = $1;`)
   pool

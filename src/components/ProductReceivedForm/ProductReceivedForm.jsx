@@ -22,11 +22,11 @@ const ProductReceivedForm = ({ count }) => {
     const [orderReceived, setOrderReceived] = useState(itemToCount.product_ordered);
 
 
-    addToCount = (event) => {
+    const addToCount = (event) => {
         event.preventDefault();
-        // console.log('counted Item:', countedItem);
+        // console.log('counted Item:', receivedProduct);
 
-        const countedItem = {
+        const receivedProduct = {
             name: productName,
             product_id: id,
             create_date: createDate,
@@ -35,12 +35,12 @@ const ProductReceivedForm = ({ count }) => {
 
         }
 
-        console.log('count Item:', countedItem);
-        dispatch({ type: 'ADD_ORDER', payload: countedItem });
+        console.log('PRODUCT RECEIVED FORM: receivedProduct:', receivedProduct);
+        dispatch({ type: 'ADD_ORDER', payload: receivedProduct });
         setProductName('');
         setCurrentCount('');
         setCreateDate('');
-        setOrderReceived(TRUE);
+        setOrderReceived('TRUE');
 
         swal({
             title: "You've UPDATED a received order!",
@@ -61,9 +61,9 @@ const ProductReceivedForm = ({ count }) => {
             <p>Product Name: {itemToCount.name}</p>
             <p>Expected Amount: {itemToCount.expected_amount}</p>
             <form onSubmit={addToCount}>
-                <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)} />
-                <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)} />
-                <input type='submit' value='Add To Inventory XX' />
+                <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)}/>
+                <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)}/>
+                <input type='submit' value='Add To Inventory' />
             </form>
         </div>
     );
