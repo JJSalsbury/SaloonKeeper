@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 
 
 function CountPage() {
-
+    const user = useSelector(store => store.user);
     const dispatch = useDispatch();
     const countList = useSelector(store => store.setCountReducer);
     // const product = useSelector(store => store.productReducer);
@@ -53,6 +53,13 @@ function CountPage() {
         dispatch({ type: 'GET_COUNT' });
     }, []);
 
+    const evaluateUser = () => {
+        if (user.access_level === 1) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     // console.log('countPage - countReducer/productReducer:', countList, product);
 
@@ -73,7 +80,7 @@ function CountPage() {
                     <StyledTableCell align="center">Current Count</StyledTableCell>
                     <StyledTableCell align="center">Count Date</StyledTableCell>
                     <StyledTableCell align="center">Start New Count</StyledTableCell>
-                    <StyledTableCell align="center">Delete Count</StyledTableCell>
+                    {evaluateUser() ? <StyledTableCell align="center">Delete Count</StyledTableCell> : <div></div>}
             </StyledTableRow>
             </TableHead>
             <TableBody>

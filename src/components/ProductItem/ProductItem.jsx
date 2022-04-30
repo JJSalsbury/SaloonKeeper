@@ -102,7 +102,7 @@ function ProductItem({ product }) { //item coming from .map on ProductList
             <StyledTableCell align="center">{product.amount} {product.unit_type}</StyledTableCell>
             <StyledTableCell align="center">{product.type}</StyledTableCell>
             <StyledTableCell align="center">{product.par}</StyledTableCell>
-            <StyledTableCell align="center" >{product.expected_amount}</StyledTableCell>
+            <StyledTableCell align="center">{product.expected_amount}</StyledTableCell>
             {evaluateUser() ? <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell> : <div></div>}
             {evaluateUser() ? <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone /></button></StyledTableCell> : <div></div>}
             <StyledTableCell align="center">{ product.product_ordered ? <button onClick={orderReceived}><LocalBar color="primary"/></button> : <button onClick={orderReceived}><LocalBar color="secondary"/></button>}</StyledTableCell>

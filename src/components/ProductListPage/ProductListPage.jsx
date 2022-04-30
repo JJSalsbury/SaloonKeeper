@@ -67,6 +67,7 @@ function ProductListPage() {
             <div className="pageTitle">
             <h1>Product Inventory List</h1>
             <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+            <button className="productBtn" onClick={addProduct}>Add New Product</button>
             </div>
             <section className="productTable">
                 <TableContainer component={Paper}>
@@ -76,13 +77,13 @@ function ProductListPage() {
                                 <StyledTableCell align="center">Product Id</StyledTableCell>
                                 <StyledTableCell align="center">Image</StyledTableCell>
                                 <StyledTableCell align="center">Product Name</StyledTableCell>
-                                <StyledTableCell align="center">Unit/Size</StyledTableCell>
+                                <StyledTableCell align="center">Unit Amt/Type</StyledTableCell>
                                 <StyledTableCell align="center">Product Type</StyledTableCell>
                                 <StyledTableCell align="center">PAR</StyledTableCell>
                                 <StyledTableCell align="center">Expected Amount</StyledTableCell>
                                 {evaluateUser() ? <StyledTableCell align="center">Delete Product</StyledTableCell>:<div></div>}
                                 {evaluateUser() ? <StyledTableCell align="center">Edit Product</StyledTableCell>:<div></div>}
-                                <StyledTableCell align="center">Order Received</StyledTableCell>
+                                <StyledTableCell align="center">Initial Stock</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>
                         <TableBody>
@@ -97,7 +98,7 @@ function ProductListPage() {
                     </Table>
                 </TableContainer>
             </section>
-            <button className="productBtn" onClick={addProduct}>Add New Product</button>
+            
         </main>
         
     )

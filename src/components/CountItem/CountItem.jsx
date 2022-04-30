@@ -43,6 +43,7 @@ const useStyles = makeStyles({
 function CountItem({count}) { //item coming from .map on CountList 
 
     const product = useSelector(store => store.productReducer);
+    const user = useSelector(store => store.user);
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
@@ -80,6 +81,14 @@ function CountItem({count}) { //item coming from .map on CountList
         history.push(`/addcount/${count.id}`);
     }
 
+    const evaluateUser = () => {
+        if (user.access_level === 1) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     return (
 
                 <StyledTableRow>
@@ -89,7 +98,8 @@ function CountItem({count}) { //item coming from .map on CountList
                     <StyledTableCell align="center">{count.current_count}</StyledTableCell>
                     <StyledTableCell align="center">{count.create_date}</StyledTableCell>
                     <StyledTableCell align="center"><button onClick={newCount}><LibraryAddCheckIcon color="primary"/></button></StyledTableCell>
-                    <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone /></button></StyledTableCell>
+                    {/* <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone /></button></StyledTableCell> */}
+                    {evaluateUser() ? <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell> : <div></div>}
                 </StyledTableRow>
 
     );
