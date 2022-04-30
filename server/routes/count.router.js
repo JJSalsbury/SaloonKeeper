@@ -7,7 +7,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  * GET route template
  */
  router.get('/', rejectUnauthenticated, (req, res) => {
-    console.log('/count GET route');
+    console.log('COUNT ROUTER GET ROUTE');
     console.log('is authenticated?', req.isAuthenticated());
   
   
@@ -87,7 +87,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
   const id = [req.params.id]
-  console.log('COUNT ROUTER PUT ROUTE: query values:', id);
+  console.log('COUNT ROUTER DELETE ROUTE: query values:', id);
 
   const queryText = (`DELETE FROM "product_count"
                     WHERE "product_count".product_id = $1;`)

@@ -37,7 +37,7 @@ const addProductForm = ({ product }) => {
 
     //FOR PRESENTATION-  set initial state to dummy entry to hit submit, no input needed
     //Initial state is an OBJECT, with keys id and name
-    let [newProduct, setProduct] = useState({ name: '', amount: '', unit_type: '', type: '', par: '', image: '', expected_amount: '' });
+    let [newProduct, setProduct] = useState({ name: '', amount: '',  unit_type: '', type: '', par: '', image: '', expected_amount: '' });
 
     const handleNameChange = (event) => {
         setProduct({ ...newProduct, name: event.target.value })
@@ -87,7 +87,7 @@ const addProductForm = ({ product }) => {
     }
 
     const quickAddInfo = () => {
-        setProduct({ name: 'Jack Daniels', amount: 'bottle', unit_type: '750ml', type: 'whiskey', par: '250', image: 'https://products3.imgix.drizly.com/ci-jack-daniels-old-no-7-92707d5e737cf4ac.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', expected_amount: '250' }); 
+        setProduct({ name: 'Jack Daniels', amount: '750ml', unit_type: 'bottle', type: 'whiskey', par: '250', image: 'https://products3.imgix.drizly.com/ci-jack-daniels-old-no-7-92707d5e737cf4ac.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', expected_amount: '250' }); 
     }
 
     return (
@@ -119,7 +119,7 @@ const addProductForm = ({ product }) => {
                     variant="filled"
                     margin="dense"
                     fullWidth
-                    value={newProduct.unit_type} onChange={handleUnitChange} />
+                    value={newProduct.amount} onChange={handleAmountChange} />
 
                 <TextField
                 required
@@ -133,7 +133,7 @@ const addProductForm = ({ product }) => {
                     variant="filled"
                     margin="dense"
                     fullWidth
-                    value={newProduct.amount} onChange={handleAmountChange} />
+                    value={newProduct.unit_type} onChange={handleUnitChange} />
                 {/* 
                     <FormControl style={{minWidth: 150}}>
                     <InputLabel id='InputLabel'>Amount Type</InputLabel>

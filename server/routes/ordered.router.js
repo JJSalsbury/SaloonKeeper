@@ -4,19 +4,19 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
  // PUT request -> updates database with edited product data
- router.put('/:id', rejectUnauthenticated, (req, res) => {
-    console.log('/product GET route');
+ router.put('/', rejectUnauthenticated, (req, res) => {
+    console.log('/ORDERED ROUTER PUT route');
     console.log('is authenticated?', req.isAuthenticated());
 
-    const id = req.params.id;
+    const id = req.body.product_id;
     const ordered = req.body;
     console.log('PUT route in /ordered: params.id and req.body:', id, ordered);
     
     const queryText = `UPDATE "product_list"
-                   SET "product_ordered" = TRUE,
+                   SET "product_ordered" = TRUE
                    WHERE "id" = $1;`;
   
-    const values = [ req.body.id ];
+    const values = [id];
   
     pool.query(queryText, values)
     .then( result => {

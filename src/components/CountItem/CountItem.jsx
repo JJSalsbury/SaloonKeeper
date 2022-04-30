@@ -75,8 +75,8 @@ function CountItem({count}) { //item coming from .map on CountList
     }
 
     const newCount = () => {
+        console.log('START COUNT BTN CLICKED');
         dispatch({ type: 'START_COUNT', payload: count})
-        console.log('editCount func');
         history.push(`/addcount/${count.id}`);
     }
 

@@ -46,7 +46,7 @@ function ProductItem({ product }) { //item coming from .map on ProductList
     const history = useHistory();
     const classes = useStyles();
     const user = useSelector(store => store.user);
-    console.log('ProductItem component:', product);
+    // console.log('ProductItem component:', product);
 
     //sends item id to saga with delete request
     const handleDelete = () => {
