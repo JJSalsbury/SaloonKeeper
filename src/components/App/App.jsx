@@ -23,7 +23,7 @@ import ProductListPage from '../ProductListPage/ProductListPage';
 import AddProductForm from '../AddProductForm/AddProductForm';
 import EditProductForm from '../EditProductForm/EditProductForm';
 import CountPage from '../CountPage/CountPage';
-import OrderReceivedForm from '../OrderReceivedForm/OrderReceivedForm'
+import ProductReceivedForm from '../ProductReceivedForm/ProductReceivedForm'
 import AddCountForm from '../AddCountForm/AddCountForm';
 
 import './App.css';
@@ -113,7 +113,7 @@ function App() {
             exact
             path="/addorder/:id"
           >
-            <OrderReceivedForm /> 
+            <ProductReceivedForm /> 
             {/* replace with new component! */}
           </ProtectedRoute>
 

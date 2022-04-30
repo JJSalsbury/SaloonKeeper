@@ -50,14 +50,29 @@ function CountItem({count}) { //item coming from .map on CountList
     // console.log('CountItem component:', count);
 
     const handleDelete = () => {
-        // swal("This product has been removed from the inventory has been deleted")
-        dispatch({ type: 'DELETE_COUNT', payload: count.id }) //sends item id to saga with delete request
-          
-    }
+      
+        //sends item id to saga with delete request
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, this count record will be permanently removed from the Product Count.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("The count item has been SUCCESSFULLY deleted from the Product Count.", {
+                icon: "success",
+                
+              });
+              {dispatch({ type: 'DELETE_COUNT', payload: count.product_id })}
+            } else {
+              swal("Your count has NOT been deleted from the Product Count.");
+            }
+          });
 
-    // // const handleClick = () => {
-    // //     dispatch({ type: 'ADD_PRODUCT', payload: product.id }) //sends item id to saga with delete request
-    // // }
+        history.push(`/count/`); 
+    }
 
     const newCount = () => {
         dispatch({ type: 'START_COUNT', payload: count})

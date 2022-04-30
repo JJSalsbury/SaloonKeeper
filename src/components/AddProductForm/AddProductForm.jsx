@@ -70,10 +70,7 @@ const addProductForm = ({ product }) => {
     const addProduct = (event) => {
         event.preventDefault();
 
-        
         //updates the next product to have a new id
-        console.log('BLAH BLAH BLAH:',newProduct.name);
-        // working on FORM error. (Missing input)...
         if ( newProduct.name !== '' && newProduct.amount !== '' && newProduct.unit_type !== '' && newProduct.type !== '' && newProduct.par !== '' && newProduct.image !== '' && newProduct.expected_amount !== '') {
         swal({
             title: "Product Added!",

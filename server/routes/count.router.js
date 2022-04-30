@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
@@ -42,11 +42,12 @@ router.post('/', (req, res) => {
     const queryText = `
     INSERT INTO "product_count" 
     ("user_id", "product_id", "create_date", "current_count")
-    VALUES ($1, $2, $3, $4)`;
+    VALUES ($1, $2, $3, $4)
+    RETURNING id;`;
   
   pool
     .query(queryText, queryValues)
-    .then(() => {res.sendStatus(201)})
+    .then((result) => {res.send(result.rows[0])})
     .catch((err) => {
       console.log('error posting item', err);
       
@@ -57,7 +58,7 @@ router.post('/', (req, res) => {
 
   //PUT Route
 // PUT request -> updates database with edited product data
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
 
   const productCount = req.body;
   console.log('req.body:', productCount);
@@ -87,7 +88,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
   const id = [req.params.id]
   const queryText = (`DELETE FROM "product_count"
-                    WHERE "product_count".id = $1;`)
+                    WHERE "product_count".product_id = $1;`)
   pool
     .query(queryText, id)
     .then((response) => {

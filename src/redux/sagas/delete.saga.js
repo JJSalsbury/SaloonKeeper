@@ -7,7 +7,7 @@ function* deleteCount(action) {
         console.log(action.payload)
         yield axios.delete(`/api/count/${id}`); //send id of item to delete
 
-        yield put({ type: 'GET_PRODUCT' }); //call get for updated count list
+        yield put({ type: 'GET_COUNT' }); //call get for updated count list
     } catch (error) {
         console.log('User get request failed', error);
     }
@@ -17,6 +17,7 @@ function* deleteProduct(action) {
     try {
         const id = action.payload
         console.log(action.payload)
+        yield axios.delete(`/api/count/${id}`);
         yield axios.delete(`/api/product/${id}`); //send id of item to delete
 
         yield put({ type: 'GET_PRODUCT' }); //call get for updated product list

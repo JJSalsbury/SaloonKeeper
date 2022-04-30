@@ -75,13 +75,13 @@ function ProductItem({ product }) { //item coming from .map on ProductList
 
     const editProduct = () => {
         dispatch({ type: 'EDIT_ITEM', payload: product })
-        console.log('editProduct func');
+        console.log('editProduct clicked');
         history.push(`/editproduct/${product.id}`)
     }
 
     const orderReceived = () => {
         dispatch({ type: 'ORDER_RECEIVED', payload: product })
-        console.log('addCount clicked');
+        console.log('orderReceived clicked');
         history.push(`/addorder/${product.id}`)
     }
 

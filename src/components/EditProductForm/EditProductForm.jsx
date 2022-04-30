@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 
 
-function editProductForm() {
+function EditProductForm() {
     const id = useParams().id;
 
     const editItem = useSelector(store => store.editReducer);
@@ -86,4 +86,4 @@ function editProductForm() {
     )
 }
 
-export default editProductForm;
+export default EditProductForm;

@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
@@ -27,7 +27,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
 
   //req.user.id is the currently logged in user's id: 
@@ -66,7 +66,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   });
 
  // PUT request -> updates database with edited product data
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
 
   const id = req.params.id;
   const product = req.body;
@@ -80,8 +80,8 @@ router.put('/:id', (req, res) => {
                      "par" = $5,
                      "image" = $6,
                      "expected_amount" = $7
-                 WHERE "id" = $8;
-  `;
+                 WHERE "id" = $8;`;
+
   const values = [req.body.name, req.body.amount, req.body.unit_type,  req.body.type, req.body.par, req.body.image, req.body.expected_amount, req.body.id];
 
   pool.query(queryText, values)
@@ -93,5 +93,6 @@ router.put('/:id', (req, res) => {
     res.sendStatus(500);
   })
 }); 
+
 
 module.exports = router;
