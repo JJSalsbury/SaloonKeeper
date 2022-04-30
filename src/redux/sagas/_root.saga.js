@@ -4,7 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import productSaga from './product.saga';
 import addProductSaga from './addProduct.saga';
-import deleteProductSaga from './deleteProduct.saga';
+import deleteSaga from './delete.saga';
 import editProductSaga from './editProduct.saga';
 import countSaga from './count.saga';
 import addOrderSaga from './addOrder.saga';
@@ -24,7 +24,7 @@ export default function* rootSaga() {
     userSaga(),
     productSaga(),
     addProductSaga(),
-    deleteProductSaga(),
+    deleteSaga(),
     editProductSaga(),
     countSaga(),
     addOrderSaga(),

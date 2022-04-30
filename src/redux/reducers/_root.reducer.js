@@ -7,6 +7,7 @@ import editReducer from './edit.reducer';
 import setCountReducer from './setCount.reducer';
 import inventoryReducer from './inventory.reducer';
 import setNewCountReducer from './setNewCount.reducer';
+import productOrderedReducer from './productOrdered.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   editReducer,
   setCountReducer,
   inventoryReducer,
-  setNewCountReducer
+  setNewCountReducer,
+  productOrderedReducer
 });
 
 export default rootReducer;

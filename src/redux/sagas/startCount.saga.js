@@ -9,7 +9,7 @@ function* startCount(action) {
     
     try {
         yield axios.put(`/api/count/${countId}`, productCount); //send id of item to delete
-        yield put({ type: 'GET_COUNT'}); //call get for updated shelf list
+        yield put({ type: 'GET_COUNT'}); //call get for updated count list
     } catch (error) {
         console.log('User get request failed', error);
     }

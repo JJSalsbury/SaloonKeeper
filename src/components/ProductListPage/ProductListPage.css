@@ -1,0 +1,24 @@
+/* .productTable {
+    font-size: 25px;
+} */
+
+.icon {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.pageTitle {
+    display: flex;
+}
+
+.productBtn {
+    float: left;
+    margin-top: 50px;
+    margin-left: 25px;
+    font-size: medium;
+    font-weight: bold;
+    /* padding: .5em; */
+    background-color: gold;
+    box-shadow: 1em;
+    height: 30px;
+}

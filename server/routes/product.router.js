@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
@@ -11,7 +11,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('is authenticated?', req.isAuthenticated());
 
 
-  const queryText = `SELECT * FROM "product_list"`;
+  const queryText = `SELECT * FROM "product_list" ORDER BY "product_list".id ASC;`;
 
   pool.query(queryText).then((result) => {
     // console.log('results', result.rows)
@@ -27,17 +27,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
 
   //req.user.id is the currently logged in user's id: 
   //this is NOT sent on params, it is on the server
-  const queryValues = [req.body.name, req.body.amount, req.body.amount_type, req.body.size,  req.body.type, req.body.par, req.body.image, req.body.expected_amount]
+  const queryValues = [req.body.name, req.body.amount, req.body.unit_type,  req.body.type, req.body.par, req.body.image, req.body.expected_amount]
 
   const queryText = `
   INSERT INTO "product_list" 
-  ("name", "amount", "amount_type", "size", "type", "par", "image", "expected_amount")
-  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+  ("name", "amount", "unit_type", "type", "par", "image", "expected_amount")
+  VALUES ($1, $2, $3, $4, $5, $6, $7)`;
 
 pool
   .query(queryText, queryValues)
@@ -66,7 +66,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   });
 
  // PUT request -> updates database with edited product data
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
 
   const id = req.params.id;
   const product = req.body;
@@ -75,15 +75,14 @@ router.put('/:id', (req, res) => {
   const queryText = `UPDATE "product_list"
                  SET "name" = $1,
                      "amount" = $2,
-                     "amount_type" = $3,
-                     "size" = $4,
-                     "type" = $5,
-                     "par" = $6,
-                     "image" = $7,
-                     "expected_amount" = $8
-                 WHERE "id" = $9;
-  `;
-  const values = [req.body.name, req.body.amount, req.body.amount_type, req.body.size,  req.body.type, req.body.par, req.body.image, req.body.expected_amount, req.body.id];
+                     "unit_type" = $3,
+                     "type" = $4,
+                     "par" = $5,
+                     "image" = $6,
+                     "expected_amount" = $7
+                 WHERE "id" = $8;`;
+
+  const values = [req.body.name, req.body.amount, req.body.unit_type,  req.body.type, req.body.par, req.body.image, req.body.expected_amount, req.body.id];
 
   pool.query(queryText, values)
   .then( result => {
@@ -94,5 +93,6 @@ router.put('/:id', (req, res) => {
     res.sendStatus(500);
   })
 }); 
+
 
 module.exports = router;

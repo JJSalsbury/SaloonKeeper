@@ -5,8 +5,10 @@ function* addOrder(action) {
     //add movie to DB
     try{
         console.log('Payload in addOrder SAGA:', action.payload);
-        const product = yield axios.post('/api/count', action.payload)
-        console.log('added count:', product.data)
+        yield axios.post('/api/count', action.payload);
+        yield axios.put('/api/ordered', action.payload);
+        yield put({ type: 'GET_PRODUCT'});
+
     } catch (error) {
         console.log('addCount error:', error)
     } 

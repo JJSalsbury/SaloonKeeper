@@ -11,6 +11,7 @@ function Nav() {
     <div className="nav">
       <Link to="/home">
         <h2 className="nav-title">SaloonKeeper</h2>
+        {/* &copy; */}
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -33,23 +34,15 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/product">
-              Product Inventory Page
+              Product Inventory
             </Link>
 
             <Link className="navLink" to="/addproduct">
-              Add Product Page
-            </Link>
-
-            <Link className="navLink" to="/editproduct">
-              Edit Product Page
+              Add Product
             </Link>
 
             <Link className="navLink" to="/count">
-              Count Page
-            </Link>
-
-            <Link className="navLink" to="/addcount">
-              Add Count Page
+              Product Count
             </Link>
 
             <LogOutButton className="navLink" />
