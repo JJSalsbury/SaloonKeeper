@@ -103,7 +103,9 @@ function EditProductForm() {
                     <input type='text' placeholder="PAR" value={par} onChange={(event) => setPar(event.target.value)} />
                     <input type='text' placeholder="expected amount" value={expectedAmount} onChange={(event) => setExpectedAmount(event.target.value)} />
                     <input type='text' placeholder="image" value={image} onChange={(event) => setImage(event.target.value)} />
-                    <ColorButton className="editBtn" type="submit" variant="contained" color="primary">Edit Product</ColorButton>
+                    <div className="editBtn">
+                    <ColorButton  type="submit" variant="contained" color="primary">Edit Product</ColorButton>
+                    </div>
                 </form>
             </Container>
         </div>

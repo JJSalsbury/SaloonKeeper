@@ -5,8 +5,10 @@
 }
 
 .orderItem {
+    padding-top: 10px;
     text-align: center;
     font-size: large;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 15px;
+    padding-bottom: 5px
 }

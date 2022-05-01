@@ -182,7 +182,9 @@ const addProductForm = ({ product }) => {
                 {/* <input type='text' placeholder='par' value={newProduct.par} onChange={handleParChange} />
                 <input type='text' placeholder='image' value={newProduct.image} onChange={handleImageChange} />
                 <input type='text' placeholder='expected amount' value={newProduct.expected_amount} onChange={handleExpectedAmountChange} /> */}
-                <ColorButton variant="contained" color="primary" type="submit">Add New Product</ColorButton>
+                <div className="addProductBtn">
+                <ColorButton  variant="contained" color="primary" type="submit">Add New Product</ColorButton>
+                </div>
             </form>
             </Container>
         </div>
