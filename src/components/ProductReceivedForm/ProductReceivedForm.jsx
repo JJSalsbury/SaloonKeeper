@@ -72,7 +72,7 @@ const ProductReceivedForm = ({ count }) => {
     return (
         <div>
         <div className="orderReceived">
-            <h1>Initial Product Stock Received</h1>
+            <h1>Initial Stock Received</h1>
             <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
         </div>
         <Container component={Paper} maxWidth="sm">

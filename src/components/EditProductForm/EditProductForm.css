@@ -1,4 +1,4 @@
-.pageTitle {
+.editPageTitle {
     display: flex;
     margin-bottom: 5px;
     align-content: stretch;
@@ -7,18 +7,15 @@
     
 }
 
-.countItem {
+.editProduct {
     text-align: center;
     font-size: large;
     margin-top: 20px;
     margin-bottom: 15px;
 }
 
-.addCount {
-    display: block;
-    text-align: center;
-    padding: 20px 10px;
-    line-height: 140;
-    /* width:100px;
-    height: 20px; */
+
+.imageItem {
+    max-width: 75px;
+    max-height: 75px;
 }

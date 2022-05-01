@@ -9,6 +9,7 @@ import { yellow } from '@material-ui/core/colors';
 import swal from 'sweetalert';
 import Container from '@material-ui/core/Container';
 import { Paper } from '@material-ui/core';
+import './EditProductForm.css';
 
 
 function EditProductForm() {
@@ -27,16 +28,9 @@ function EditProductForm() {
     const [type, setType] = useState(editItem.type);
     const [par, setPar] = useState(editItem.par);
     const [expectedAmount, setExpectedAmount] = useState(editItem.expected_amount);
+    const [image, setImage] = useState(editItem.image);
 
-    // const useStyles = makeStyles((theme) => ({
-    //     root: {
-    //         '& .MuiTextField-root': {
-    //             margin: theme.spacing(2),
-    //             // width: '125ch',
-    //         },
-    //     },
-    // }));
-    
+
     const ColorButton = withStyles((theme) => ({
         root: {
             color: theme.palette.getContrastText(yellow[600]),
@@ -46,7 +40,7 @@ function EditProductForm() {
             },
         },
     }))(Button);
-    
+
     // send updated product data to database
     const editProduct = (event) => {
         event.preventDefault();
@@ -59,7 +53,8 @@ function EditProductForm() {
             unit_type: unit,
             type: type,
             par: par,
-            expected_amount: expectedAmount
+            expected_amount: expectedAmount,
+            image: image
 
         }
 
@@ -71,6 +66,7 @@ function EditProductForm() {
         setType('');
         setPar('');
         setExpectedAmount('');
+        setImage('');
 
         swal({
             title: "Product Added!",
@@ -87,27 +83,34 @@ function EditProductForm() {
     }
 
     return (
-            <div>          
-                    <h1>Edit Product</h1>
-                    <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+        <div>
+            <div className="editPageTitle">
+                <h1>Edit Product</h1>
+                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+            </div>
+            <Container component={Paper} maxWidth="sm">
+                <div className="countItem">
                     <p>{editItem.name}</p>
-                    <p>AMOUNT: {editItem.amount}{editItem.unit_type}</p>
+                    <img className="imageItem" src={editItem.image} />
+                    <p>AMOUNT: {editItem.amount} {editItem.unit_type}</p>
                     <p>TYPE: {editItem.type}</p>
                     <p>PAR: {editItem.par}</p>
                     <p>EXPECTED AMOUNT: {editItem.expected_amount}</p>
-                
-
-                <form onSubmit={editProduct}>
-                    <input type='text' placeholder={name} value={name} onChange={(event) => setName(event.target.value)} />
-                    <input type='text' placeholder={amount} value={amount} onChange={(event) => setAmount(event.target.value)} />
-                    <input type='text' placeholder={unit} value={unit} onChange={(event) => setUnit(event.target.value)} />
-                    <input type='text' placeholder={type} value={type} onChange={(event) => setType(event.target.value)} />
-                    <input type='text' placeholder={par} value={par} onChange={(event) => setPar(event.target.value)} />
-                    <input type='text' placeholder={expectedAmount} value={expectedAmount} onChange={(event) => setExpectedAmount(event.target.value)} />
-                    <input type='submit' value='Update Product' />
-                    <button onClick={returnToList}>Cancel Edit</button>
+                </div>
+                <form className="editProduct" onSubmit={editProduct}>
+                    <input type='text' placeholder="name" value={name} onChange={(event) => setName(event.target.value)} />
+                    <input type='text' placeholder="amount" value={amount} onChange={(event) => setAmount(event.target.value)} />
+                    <input type='text' placeholder="unit" value={unit} onChange={(event) => setUnit(event.target.value)} />
+                    <input type='text' placeholder="product type" value={type} onChange={(event) => setType(event.target.value)} />
+                    <input type='text' placeholder="PAR" value={par} onChange={(event) => setPar(event.target.value)} />
+                    <input type='text' placeholder="expected amount" value={expectedAmount} onChange={(event) => setExpectedAmount(event.target.value)} />
+                    <input type='text' placeholder="image" value={image} onChange={(event) => setImage(event.target.value)} />
+                    {/* <input type='submit' value='Update Product' /> */}
+                    {/* <button onClick={returnToList}>Cancel Edit</button> */}
+                    <ColorButton type="submit" variant="contained" color="primary">Edit Product</ColorButton>
                 </form>
-            </div>
+            </Container>
+        </div>
     )
 }
 

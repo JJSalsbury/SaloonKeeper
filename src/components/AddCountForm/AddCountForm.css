@@ -1,8 +1,9 @@
 .countPageTitle {
     display: flex;
     margin-bottom: 5px;
-    justify-content: center;
-    
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;    
 }
 
 .countItem {
@@ -11,11 +12,3 @@
     margin-top: 20px;
     margin-bottom: 15px;
 }
-
-/* .addCount {
-    display: block;
-    text-align: center;
-    padding: 20px 10px;
-    line-height: 140;
-
-} */

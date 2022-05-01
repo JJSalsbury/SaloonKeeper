@@ -76,14 +76,11 @@ const AddCountForm = ({ count }) => {
                 <form className="countItem" onSubmit={handleSubmit}>
                     <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
                     <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
-                    <input type='submit' value='Add To Inventory' />             
+                    <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>             
                 </form>
             </Container>
-            <div className="countItem" >
-                <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
-            </div>
         </div>
-    );
+    )
 }
 
 
