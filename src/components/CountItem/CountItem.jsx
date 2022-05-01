@@ -7,11 +7,8 @@ import React from 'react';
 import swal from 'sweetalert';
 import { Paper } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
+
 import TableRow from '@material-ui/core/TableRow';
 import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
 import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
@@ -40,7 +37,7 @@ const useStyles = makeStyles({
     },
 })
 
-function CountItem({count}) { //item coming from .map on CountList 
+function CountItem({ count }) { //item coming from .map on CountList 
 
     const product = useSelector(store => store.productReducer);
     const user = useSelector(store => store.user);
@@ -51,7 +48,7 @@ function CountItem({count}) { //item coming from .map on CountList
     // console.log('CountItem component:', count);
 
     const handleDelete = () => {
-      
+
         //sends item id to saga with delete request
         swal({
             title: "Are you sure?",
@@ -59,25 +56,25 @@ function CountItem({count}) { //item coming from .map on CountList
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              swal("The count item has been SUCCESSFULLY deleted from the Product Count.", {
-                icon: "success",
-                
-              });
-              {dispatch({ type: 'DELETE_COUNT', payload: count.product_id })}
-            } else {
-              swal("Your count has NOT been deleted from the Product Count.");
-            }
-          });
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("The count item has been SUCCESSFULLY deleted from the Product Count.", {
+                        icon: "success",
 
-        history.push(`/count/`); 
+                    });
+                    { dispatch({ type: 'DELETE_COUNT', payload: count.product_id }) }
+                } else {
+                    swal("Your count has NOT been deleted from the Product Count.");
+                }
+            });
+
+        history.push(`/count/`);
     }
 
     const newCount = () => {
         console.log('START COUNT BTN CLICKED');
-        dispatch({ type: 'START_COUNT', payload: count})
+        dispatch({ type: 'START_COUNT', payload: count })
         history.push(`/addcount/${count.id}`);
     }
 
@@ -91,16 +88,18 @@ function CountItem({count}) { //item coming from .map on CountList
 
     return (
 
-                <StyledTableRow>
-                    <StyledTableCell align="center">{count.product_id}</StyledTableCell>
-                    <StyledTableCell align="center">{count.name}</StyledTableCell>
-                    <StyledTableCell align="center">{count.user_id}</StyledTableCell>
-                    <StyledTableCell align="center">{count.current_count}</StyledTableCell>
-                    <StyledTableCell align="center">{count.create_date}</StyledTableCell>
-                    <StyledTableCell align="center"><button onClick={newCount}><LibraryAddCheckIcon color="primary"/></button></StyledTableCell>
-                    {/* <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone /></button></StyledTableCell> */}
-                    {evaluateUser() ? <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell> : <div></div>}
-                </StyledTableRow>
+        <StyledTableRow>
+            <StyledTableCell align="center">{count.product_id}</StyledTableCell>
+            <StyledTableCell align="center">{count.name}</StyledTableCell>
+            <StyledTableCell align="center">{count.user_id}</StyledTableCell>
+            <StyledTableCell align="center">{count.current_count}</StyledTableCell>
+            <StyledTableCell align="center">{count.create_date}</StyledTableCell>
+            <StyledTableCell align="center"><button onClick={newCount}>
+            <LibraryAddCheckIcon color="primary" /></button></StyledTableCell>
+            {evaluateUser() ? 
+            <StyledTableCell align="center"><button onClick={handleDelete}>
+            <DeleteTwoTone /></button></StyledTableCell> : <div></div>}
+        </StyledTableRow>
 
     );
 }

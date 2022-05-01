@@ -128,28 +128,10 @@ const addProductForm = ({ product }) => {
                     id="filled-required"
                     helperText="Product Unit Type"
                     label="ex. cans, bottles"
-                    // type="number"
-                    // InputLabelProps={{
-                    //     shrink: true,
-                    // }}
                     variant="filled"
                     margin="dense"
                     fullWidth
                     value={newProduct.unit_type} onChange={handleUnitChange} />
-                {/* 
-                    <FormControl style={{minWidth: 150}}>
-                    <InputLabel id='InputLabel'>Amount Type</InputLabel>
-                    <Select value= {newProduct.type} defaultValue={0} required name='amount type' id="amount type" variant="filled" onChange={handleTypeChange}>
-                        <MenuItem value={0}>Vodka</MenuItem>
-                        <MenuItem value={1}>Whiskey</MenuItem>
-                        <MenuItem value='2'>Tequila</MenuItem>
-                        <MenuItem value='3'>Rum</MenuItem>
-                        <MenuItem value='4'>Gin</MenuItem>
-                        <MenuItem value='5'>Cordial</MenuItem>
-                        <MenuItem value='6'>Beer</MenuItem>
-                        <MenuItem value='7'>Wine</MenuItem>
-                    </Select>
-                </FormControl> */}
 
                 <TextField
                 required

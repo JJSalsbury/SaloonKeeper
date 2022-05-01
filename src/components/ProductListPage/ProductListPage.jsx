@@ -12,7 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Container from '@material-ui/core/Container';
-import './ProductListPage.css'; 
+import './ProductListPage.css';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -66,13 +66,13 @@ function ProductListPage() {
     return (
         <main>
             <Container component={Paper} maxWidth="lg">
-            <div className="pageTitle">
-            <h1>Product Inventory List</h1>
-            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
-            <button className="productBtn" onClick={addProduct}>Add New Product</button>
-            </div>
-            <section className="productTable">
-                
+                <div className="pageTitle">
+                    <h1>Product Inventory List</h1>
+                    <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+                    <button className="productBtn" onClick={addProduct}>Add New Product</button>
+                </div>
+                <section className="productTable">
+
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
                             <StyledTableRow>
@@ -83,8 +83,10 @@ function ProductListPage() {
                                 <StyledTableCell align="center">Product Type</StyledTableCell>
                                 <StyledTableCell align="center">PAR</StyledTableCell>
                                 <StyledTableCell align="center">Expected Amount</StyledTableCell>
-                                {evaluateUser() ? <StyledTableCell align="center">Delete Product</StyledTableCell>:<div></div>}
-                                {evaluateUser() ? <StyledTableCell align="center">Edit Product</StyledTableCell>:<div></div>}
+                                {evaluateUser() ?
+                                    <StyledTableCell align="center">Delete Product</StyledTableCell> : <div></div>}
+                                {evaluateUser() ?
+                                    <StyledTableCell align="center">Edit Product</StyledTableCell> : <div></div>}
                                 <StyledTableCell align="center">Initial Stock</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>
@@ -98,11 +100,11 @@ function ProductListPage() {
                             })}
                         </TableBody>
                     </Table>
-                
-            </section>
+
+                </section>
             </Container>
         </main>
-        
+
     )
 }
 
