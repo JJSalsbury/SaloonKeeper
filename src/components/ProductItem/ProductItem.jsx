@@ -1,15 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import React from 'react';
 import swal from 'sweetalert';
-import { Paper } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { DeleteTwoTone, EditTwoTone, LocalBar } from '@material-ui/icons';
 import './ProductItem.css';
@@ -117,19 +111,3 @@ function ProductItem({ product }) { //item coming from .map on ProductList
 }
 
 export default ProductItem;
-
-
-/*
-// if user access level is 2, return button delete , else will return nothing. 
-{ user.access_level === 2 ?
-
-
-<button onClick={handleDelete}
-
-:
-
-<div></div>
-
-}
-
-*/

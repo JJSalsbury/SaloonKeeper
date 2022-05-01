@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { yellow } from '@material-ui/core/colors';
 import swal from 'sweetalert';
 import Container from '@material-ui/core/Container';
@@ -33,8 +33,6 @@ const addProductForm = ({ product }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
-
-    // console.log('AddProductForm component:', product);
 
     //FOR PRESENTATION-  set initial state to dummy entry to hit submit, no input needed
     //Initial state is an OBJECT, with keys id and name
@@ -98,11 +96,9 @@ const addProductForm = ({ product }) => {
             <Container component={Paper} maxWidth="md">
             <div className="pageTitle">
                 <h1>Add New Product</h1>
-                {/* <pre>{JSON.stringify(newProduct)}</pre> */}
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" onClick={quickAddInfo}/>
             </div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={addProduct}>
-
 
                 <TextField
                 required
@@ -174,14 +170,6 @@ const addProductForm = ({ product }) => {
                     fullWidth
                     value={newProduct.image} onChange={handleImageChange} />
 
-
-
-                {/* <input type='text' placeholder='amount type' value={newProduct.amount_type} onChange={handleAmountTypeChange} /> */}
-                {/* <input type='text' placeholder='unit_type' value={newProduct.unit_type} onChange={handleUnitChange} /> */}
-                {/* <input type='text' placeholder='type' value={newProduct.type} onChange={handleTypeChange} /> */}
-                {/* <input type='text' placeholder='par' value={newProduct.par} onChange={handleParChange} />
-                <input type='text' placeholder='image' value={newProduct.image} onChange={handleImageChange} />
-                <input type='text' placeholder='expected amount' value={newProduct.expected_amount} onChange={handleExpectedAmountChange} /> */}
                 <div className="addProductBtn">
                 <ColorButton  variant="contained" color="primary" type="submit">Add New Product</ColorButton>
                 </div>

@@ -1,12 +1,12 @@
 .icon {
     max-width: 100px;
-    max-height: 100px;
+    max-height: 100px
 }
 
 .pageTitle {
     display: flex;
     margin-left: 1px;
-    margin-bottom: 15px;
+    margin-bottom: 15px
 }
 
 .productBtn {
@@ -18,9 +18,9 @@
     /* padding: .5em; */
     background-color: gold;
     box-shadow: 1em;
-    height: 30px;
+    height: 30px
 }
 
 .productTable {
-    padding-bottom: 30px;
+    padding-bottom: 30px
 }

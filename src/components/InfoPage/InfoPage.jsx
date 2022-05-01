@@ -8,7 +8,18 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Info Page</p>
+      <h3>Technologies Used Include:</h3>
+      <ul>
+        <li>Javascript</li>
+        <li>React</li>
+        <li>Redux</li>
+        <li>Redux-Sagas</li>
+        <li>Node.js</li>
+        <li>PostgresSql</li>
+        <li>Material UI</li>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
     </div>
   );
 }

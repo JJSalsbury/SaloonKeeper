@@ -30,7 +30,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
   /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     // endpoint functionality
     // const count = Number(req.body.current_count);
     console.log(req.body);

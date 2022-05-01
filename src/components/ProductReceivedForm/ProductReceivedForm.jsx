@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { yellow } from '@material-ui/core/colors';
 import { Paper } from '@material-ui/core';
-import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import './ProductReceivedForm.css';
 
 
@@ -65,29 +65,29 @@ const ProductReceivedForm = ({ count }) => {
             button: "See Count Page",
         });
 
-        history.push('/product')
+        {history.push('/product')}
     }
 
 
     return (
         <div>
-        <div className="orderReceived">
-            <h1>Initial Stock Received</h1>
-            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
-        </div>
-        <Container component={Paper} maxWidth="sm">
-        <div className="orderItem">
-            <p>{count}</p>
-            <p>Product Id: {itemToCount.id}</p>
-            <p>Product Name: {itemToCount.name}</p>
-            <p>Expected Amount: {itemToCount.expected_amount}</p>
+            <div className="orderReceived">
+                <h1>Initial Stock Received</h1>
+                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
-            <form className="orderItem" onSubmit={addToCount}>
-                <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)}/>
-                <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)}/>
+            <Container component={Paper} maxWidth="sm">
                 <div className="orderItem">
-                <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
+                    <p>{count}</p>
+                    <p>Product Id: {itemToCount.id}</p>
+                    <p>Product Name: {itemToCount.name}</p>
+                    <p>Expected Amount: {itemToCount.expected_amount}</p>
                 </div>
+                <form className="orderItem" onSubmit={addToCount}>
+                    <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)} />
+                    <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)} />
+                    <div className="orderItem">
+                        <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
+                    </div>
                 </form>
             </Container>
 

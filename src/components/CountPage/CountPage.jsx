@@ -1,15 +1,11 @@
 import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CountItem from '../CountItem/CountItem';
-import { useHistory } from 'react-router-dom';
-// import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-// import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import { Paper } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Container from '@material-ui/core/Container';
@@ -46,8 +42,6 @@ function CountPage() {
     const user = useSelector(store => store.user);
     const dispatch = useDispatch();
     const countList = useSelector(store => store.setCountReducer);
-    // const product = useSelector(store => store.productReducer);
-    const history = useHistory();
     const classes = useStyles();
 
     useEffect(() => {
@@ -61,8 +55,6 @@ function CountPage() {
             return false
         }
     }
-
-    // console.log('countPage - countReducer/productReducer:', countList, product);
 
     return (
         <main>

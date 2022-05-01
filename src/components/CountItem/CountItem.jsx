@@ -91,10 +91,10 @@ function CountItem({ count }) { //item coming from .map on CountList
             <StyledTableCell align="center">{count.current_count}</StyledTableCell>
             <StyledTableCell align="center">{count.create_date}</StyledTableCell>
             <StyledTableCell align="center"><button onClick={newCount}>
-            <LibraryAddCheckIcon color="primary" /></button></StyledTableCell>
-            {evaluateUser() ? 
-            <StyledTableCell align="center"><button onClick={handleDelete}>
-            <DeleteTwoTone /></button></StyledTableCell> : <div></div>}
+                <LibraryAddCheckIcon color="primary" /></button></StyledTableCell>
+            {evaluateUser() ?
+                <StyledTableCell align="center"><button onClick={handleDelete}>
+                    <DeleteTwoTone /></button></StyledTableCell> : <div></div>}
         </StyledTableRow>
 
     );

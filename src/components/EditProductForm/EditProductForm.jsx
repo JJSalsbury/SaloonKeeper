@@ -74,8 +74,8 @@ function EditProductForm() {
             icon: "success",
             button: "Back To List",
         });
-
-       
+        
+        {history.push('/product')}
     }
 
 

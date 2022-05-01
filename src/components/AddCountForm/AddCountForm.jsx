@@ -2,18 +2,14 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
 import { yellow } from '@material-ui/core/colors';
-import swal from 'sweetalert';
 import Container from '@material-ui/core/Container';
 import { Paper } from '@material-ui/core';
 import './AddCountForm.css';
 
 
-import { applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
 
 
 const ColorButton = withStyles((theme) => ({
@@ -59,10 +55,7 @@ const AddCountForm = ({ count }) => {
                 console.log('error on PUT: ', error);
             })
         history.push('/count');
-    };
-
-    // returnToList();
-
+    }
 
 
     return (
@@ -72,7 +65,7 @@ const AddCountForm = ({ count }) => {
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
             <Container component={Paper} maxWidth="sm">
-            <div className="countItem">
+                <div className="countItem">
                     <h3>Count Item</h3>
                     <p>Product Id: {itemToCount.product_id}</p>
                     <p>Product Name: {itemToCount.name}</p>
@@ -81,8 +74,8 @@ const AddCountForm = ({ count }) => {
                     <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
                     <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
                     <div className="addCountBtn">
-                    <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
-                    </div>            
+                        <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
+                    </div>
                 </form>
             </Container>
         </div>
