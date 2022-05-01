@@ -11,6 +11,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Container from '@material-ui/core/Container';
 import './ProductListPage.css'; 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -64,13 +65,14 @@ function ProductListPage() {
 
     return (
         <main>
+            <Container component={Paper} maxWidth="lg">
             <div className="pageTitle">
             <h1>Product Inventory List</h1>
             <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             <button className="productBtn" onClick={addProduct}>Add New Product</button>
             </div>
             <section className="productTable">
-                <TableContainer component={Paper}>
+                
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
                             <StyledTableRow>
@@ -96,9 +98,9 @@ function ProductListPage() {
                             })}
                         </TableBody>
                     </Table>
-                </TableContainer>
+                
             </section>
-            
+            </Container>
         </main>
         
     )

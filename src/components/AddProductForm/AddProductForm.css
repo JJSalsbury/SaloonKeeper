@@ -5,12 +5,17 @@
 
 .pageTitle {
     display: flex;
+    margin-bottom: 5px;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
 }
 
 .productForm {
     display: flex;
 }
 
-.swal-text {
+/* .swal-text {
     text-align: center;
-}
+} */
