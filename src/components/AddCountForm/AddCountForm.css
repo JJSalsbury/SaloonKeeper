@@ -1,0 +1,24 @@
+.countPageTitle {
+    display: flex;
+    margin-bottom: 5px;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;    
+}
+
+.countItem {
+    padding-top: 20px;
+    text-align: center;
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.addCountBtn {
+    margin-top: 15px;
+    margin-left:175px;
+    max-width: 200px;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding-bottom: 25px
+}

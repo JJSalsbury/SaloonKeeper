@@ -1,0 +1,32 @@
+.editPageTitle {
+    display: flex;
+    margin-bottom: 5px;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center
+    
+}
+
+.editProduct {
+    padding-top: 20px;
+    text-align: center;
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 15px
+}
+
+
+.imageItem {
+    max-width: 75px;
+    max-height: 75px
+}
+
+.editBtn {
+    padding-top: 10px;
+    margin-top: 15px;
+    margin-left: 173px;
+    max-width: 200px;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding-bottom: 25px
+}

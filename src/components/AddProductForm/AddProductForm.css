@@ -1,16 +1,27 @@
 .icon {
     max-width: 100px;
-    max-height: 100;
+    max-height: 100
 }
 
 .pageTitle {
+    padding-top: 20px;
     display: flex;
+    margin-left: 25px;
+    margin-bottom: 15px
+    
 }
 
 .productForm {
     display: flex;
+    padding-top: 100px
 }
 
-.swal-text {
-    text-align: center;
+.addProductBtn {
+    
+    margin-top: 15px;
+    margin-left: 350px;
+    max-width: 200px;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding-bottom: 25px
 }

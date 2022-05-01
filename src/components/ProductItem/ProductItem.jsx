@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 });
 
 function ProductItem({ product }) { //item coming from .map on ProductList 
-    
+
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
@@ -53,24 +53,24 @@ function ProductItem({ product }) { //item coming from .map on ProductList
 
         swal({
             title: "Are you sure?",
-            text: "Once deleted, this product will be permanently removed from the Product Inventory List.",
+            text: "Once deleted, this product will be permanently removed from the Product Inventory List and from the Product Count.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              swal("The product item has been SUCCESSFULLY deleted from the Product Inventory List.", {
-                icon: "success",
-                
-              });
-              {dispatch({ type: 'DELETE_ITEM', payload: product.id })}
-            } else {
-              swal("Your product has NOT been deleted from the Product Inventory List.");
-            }
-          });
-        
-        history.push(`/product/`);
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("The product item has been SUCCESSFULLY deleted from the Product Inventory List. And removed from the Product Count!", {
+                        icon: "success",
+
+                    });
+                    { dispatch({ type: 'DELETE_ITEM', payload: product.id }) }
+                } else {
+                    swal("Your product has NOT been deleted.");
+                }
+            });
+
+        history.push('/product');
     }
 
     const editProduct = () => {
@@ -103,9 +103,15 @@ function ProductItem({ product }) { //item coming from .map on ProductList
             <StyledTableCell align="center">{product.type}</StyledTableCell>
             <StyledTableCell align="center">{product.par}</StyledTableCell>
             <StyledTableCell align="center">{product.expected_amount}</StyledTableCell>
-            {evaluateUser() ? <StyledTableCell align="center"><button onClick={handleDelete}><DeleteTwoTone/></button></StyledTableCell> : <div></div>}
-            {evaluateUser() ? <StyledTableCell align="center"><button onClick={editProduct}><EditTwoTone /></button></StyledTableCell> : <div></div>}
-            <StyledTableCell align="center">{ product.product_ordered ? <button onClick={orderReceived}><LocalBar color="primary"/></button> : <button onClick={orderReceived}><LocalBar color="secondary"/></button>}</StyledTableCell>
+            {evaluateUser() ?
+                <StyledTableCell align="center"><button onClick={handleDelete}>
+                    <DeleteTwoTone /></button></StyledTableCell> : <div></div>}
+            {evaluateUser() ?
+                <StyledTableCell align="center"><button onClick={editProduct}>
+                    <EditTwoTone /></button></StyledTableCell> : <div></div>}
+            <StyledTableCell align="center">{product.product_ordered ?
+                <button onClick={orderReceived}><LocalBar color="primary" /></button> :
+                <button onClick={orderReceived}><LocalBar color="secondary" /></button>}</StyledTableCell>
         </StyledTableRow>
     );
 }

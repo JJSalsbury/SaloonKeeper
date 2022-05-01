@@ -7,13 +7,14 @@ import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/
 import { yellow } from '@material-ui/core/colors';
 import swal from 'sweetalert';
 import Container from '@material-ui/core/Container';
+import { Paper } from '@material-ui/core';
+import './AddProductForm.css';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
-            margin: theme.spacing(2),
-            // width: '125ch',
+            margin: theme.spacing(0.5),
         },
     },
 }));
@@ -23,7 +24,7 @@ const ColorButton = withStyles((theme) => ({
       color: theme.palette.getContrastText(yellow[600]),
       backgroundColor: yellow[600],
       '&:hover': {
-        backgroundColor: yellow[600],
+        backgroundColor: yellow[600], 
       },
     },
   }))(Button);
@@ -67,6 +68,8 @@ const addProductForm = ({ product }) => {
         setProduct({ ...newProduct, expected_amount: event.target.value })
     }
 
+
+    
     const addProduct = (event) => {
         event.preventDefault();
 
@@ -92,9 +95,9 @@ const addProductForm = ({ product }) => {
 
     return (
         <div>
-            <Container maxWidth="lg">
+            <Container component={Paper} maxWidth="md">
             <div className="pageTitle">
-                <h1>Add New Product Form</h1>
+                <h1>Add New Product</h1>
                 {/* <pre>{JSON.stringify(newProduct)}</pre> */}
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" onClick={quickAddInfo}/>
             </div>
@@ -126,28 +129,10 @@ const addProductForm = ({ product }) => {
                     id="filled-required"
                     helperText="Product Unit Type"
                     label="ex. cans, bottles"
-                    // type="number"
-                    // InputLabelProps={{
-                    //     shrink: true,
-                    // }}
                     variant="filled"
                     margin="dense"
                     fullWidth
                     value={newProduct.unit_type} onChange={handleUnitChange} />
-                {/* 
-                    <FormControl style={{minWidth: 150}}>
-                    <InputLabel id='InputLabel'>Amount Type</InputLabel>
-                    <Select value= {newProduct.type} defaultValue={0} required name='amount type' id="amount type" variant="filled" onChange={handleTypeChange}>
-                        <MenuItem value={0}>Vodka</MenuItem>
-                        <MenuItem value={1}>Whiskey</MenuItem>
-                        <MenuItem value='2'>Tequila</MenuItem>
-                        <MenuItem value='3'>Rum</MenuItem>
-                        <MenuItem value='4'>Gin</MenuItem>
-                        <MenuItem value='5'>Cordial</MenuItem>
-                        <MenuItem value='6'>Beer</MenuItem>
-                        <MenuItem value='7'>Wine</MenuItem>
-                    </Select>
-                </FormControl> */}
 
                 <TextField
                 required
@@ -197,7 +182,9 @@ const addProductForm = ({ product }) => {
                 {/* <input type='text' placeholder='par' value={newProduct.par} onChange={handleParChange} />
                 <input type='text' placeholder='image' value={newProduct.image} onChange={handleImageChange} />
                 <input type='text' placeholder='expected amount' value={newProduct.expected_amount} onChange={handleExpectedAmountChange} /> */}
-                <ColorButton variant="contained" color="primary" type="submit">Add New Product</ColorButton>
+                <div className="addProductBtn">
+                <ColorButton  variant="contained" color="primary" type="submit">Add New Product</ColorButton>
+                </div>
             </form>
             </Container>
         </div>

@@ -2,60 +2,54 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import { yellow } from '@material-ui/core/colors';
+import swal from 'sweetalert';
+import Container from '@material-ui/core/Container';
+import { Paper } from '@material-ui/core';
+import './AddCountForm.css';
 
 
 import { applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 
-const AddCountForm = ({count}) => {
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText(yellow[600]),
+        backgroundColor: yellow[600],
+        '&:hover': {
+            backgroundColor: yellow[600],
+        },
+    },
+}))(Button);
+
+const AddCountForm = ({ count }) => {
     const id = useParams().id;
 
     const dispatch = useDispatch();
     const history = useHistory();
+
 
     const itemToCount = useSelector(store => store.setNewCountReducer);
 
     // console.log('Count:', count);
     console.log('Item To Count:', itemToCount);
 
-    //Initial state is an OBJECT, with keys id and name
-    // const [productId, setProductId] = useState(itemToCount.product_id);
-    //  const [currentCount, setCurrentCount] = useState(itemToCount.current_count);
-    //  const [createDate, setCreateDate] = useState(itemToCount.create_date);
-    //  const [userId] = useState(countedItem.id);
-        
-
-
     const addCount = (event) => {
-        event.preventDefault();
-        console.log('counted Item:', itemToCount);
-       
-        // const countedItem = {
-        //     // id: ,
-        //     // user_id: ,
-
-        //     product_id: id,
-        //     create_date: createDate,
-        //     current_count: currentCount
-
-        // }
-
+        // event.preventDefault();
         console.log('addCountButton new counted Item:', itemToCount);
-        dispatch({ type: 'START_NEW_COUNT', payload:  { property: event.target.name, value: event.target.value}  });
-        // dispatch({ type: 'ADD_COUNT', payload: { count: countedItem } });
-        // setProductId('');
-        // setCurrentCount('');
-        // setCreateDate('');
-
-        // returnToList();
-        // history.push('/count');
+        // dispatch({ type: 'START_NEW_COUNT', payload:  { property: event.target.name, value: event.target.value}  });
+        dispatch({ type: 'START_NEW_COUNT', payload: { property: event.target.name, value: event.target.value } });
     }
 
     function handleSubmit(event) {
         event.preventDefault();
-        // PUT REQUEST to /students/:id
+        // PUT REQUEST to /count/:id
         axios.put(`/api/count/${itemToCount.id}`, itemToCount)
-            .then( response => {
+            .then(response => {
                 // clean up reducer data            
                 dispatch({ type: 'CLEAR_COUNT' });
                 // refresh will happen with useEffect on Home
@@ -63,25 +57,36 @@ const AddCountForm = ({count}) => {
             })
             .catch(error => {
                 console.log('error on PUT: ', error);
-            }) 
-             history.push('/count'); 
-      };
+            })
+        history.push('/count');
+    };
+
+    // returnToList();
+
 
 
     return (
         <div>
-            <h3>Add To Count</h3>
-            {/* <pre>{JSON.stringify(newProduct)}</pre> */}
-            <p>Product Id: {itemToCount.product_id}</p>
-            <p>Product Name: {itemToCount.name}</p>
-            <form onSubmit={handleSubmit}>
-                <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
-                <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
-
-                <input type='submit' value='Add To Inventory' />
-            </form>
+            <div className="countPageTitle">
+                <h1>Add New Count</h1>
+                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+            </div>
+            <Container component={Paper} maxWidth="sm">
+            <div className="countItem">
+                    <h3>Count Item</h3>
+                    <p>Product Id: {itemToCount.product_id}</p>
+                    <p>Product Name: {itemToCount.name}</p>
+                </div>
+                <form className="countItem" onSubmit={handleSubmit}>
+                    <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
+                    <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
+                    <div className="addCountBtn">
+                    <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
+                    </div>            
+                </form>
+            </Container>
         </div>
-    );
+    )
 }
 
 
