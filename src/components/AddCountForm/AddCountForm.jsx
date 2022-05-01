@@ -64,19 +64,12 @@ const AddCountForm = ({ count }) => {
     // returnToList();
 
 
-const returnToList = () => {
-    history.push('/count');
-}
-
-const quickAddInfo = () => {
-    setProduct({ current_count: '250', amount: '05/02/2022' }); 
-}
 
     return (
         <div>
             <div className="countPageTitle">
                 <h1>Add New Count</h1>
-                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" onClick={quickAddInfo}/>
+                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
             <Container component={Paper} maxWidth="sm">
             <div className="countItem">
@@ -89,8 +82,7 @@ const quickAddInfo = () => {
                     <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
                     <div className="addCountBtn">
                     <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
-                    </div>
-                    <ColorButton type={returnToList} variant="contained" color="secondary">Cancel Count</ColorButton>              
+                    </div>            
                 </form>
             </Container>
         </div>

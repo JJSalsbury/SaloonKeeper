@@ -75,13 +75,10 @@ function EditProductForm() {
             button: "Back To List",
         });
 
-        returnToList();
+       
     }
 
-    const returnToList = () => {
-        history.push('/product');
-    }
-    
+
 
     return (
         <div>
@@ -106,13 +103,7 @@ function EditProductForm() {
                     <input type='text' placeholder="PAR" value={par} onChange={(event) => setPar(event.target.value)} />
                     <input type='text' placeholder="expected amount" value={expectedAmount} onChange={(event) => setExpectedAmount(event.target.value)} />
                     <input type='text' placeholder="image" value={image} onChange={(event) => setImage(event.target.value)} />
-                    {/* <input type='submit' value='Update Product' /> */}
-                    {/* <button onClick={returnToList}>Cancel Edit</button> */}
-                    <div className="editBtn">
-                    <ColorButton type="submit" variant="contained" color="primary">Edit Product</ColorButton>
-                    </div>
-                    
-                    <ColorButton type={returnToList} variant="contained" color="primary">Cancel Edit</ColorButton> 
+                    <ColorButton className="editBtn" type="submit" variant="contained" color="primary">Edit Product</ColorButton>
                 </form>
             </Container>
         </div>

@@ -68,9 +68,6 @@ const ProductReceivedForm = ({ count }) => {
         history.push('/product')
     }
 
-    const returnToList = () => {
-        history.push('/product');
-    }
 
     return (
         <div>
@@ -91,7 +88,6 @@ const ProductReceivedForm = ({ count }) => {
                 <div className="orderItem">
                 <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
                 </div>
-                <ColorButton type={returnToList} variant="contained" color="secondary">Cancel Add Product</ColorButton>
                 </form>
             </Container>
 

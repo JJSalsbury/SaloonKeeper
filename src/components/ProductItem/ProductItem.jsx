@@ -53,24 +53,24 @@ function ProductItem({ product }) { //item coming from .map on ProductList
 
         swal({
             title: "Are you sure?",
-            text: "Once deleted, this product will be permanently removed from the Product Inventory List.",
+            text: "Once deleted, this product will be permanently removed from the Product Inventory List and from the Product Count.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("The product item has been SUCCESSFULLY deleted from the Product Inventory List.", {
+                    swal("The product item has been SUCCESSFULLY deleted from the Product Inventory List. And removed from the Product Count!", {
                         icon: "success",
 
                     });
                     { dispatch({ type: 'DELETE_ITEM', payload: product.id }) }
                 } else {
-                    swal("Your product has NOT been deleted from the Product Inventory List.");
+                    swal("Your product has NOT been deleted.");
                 }
             });
 
-        history.push(`/product/`);
+        history.push('/product');
     }
 
     const editProduct = () => {
