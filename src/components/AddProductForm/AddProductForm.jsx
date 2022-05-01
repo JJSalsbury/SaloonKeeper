@@ -94,7 +94,7 @@ const addProductForm = ({ product }) => {
 
     return (
         <div>
-            <Container maxWidth="md">
+            <Container component={Paper} maxWidth="md">
             <div className="pageTitle">
                 <h1>Add New Product Form</h1>
                 {/* <pre>{JSON.stringify(newProduct)}</pre> */}
