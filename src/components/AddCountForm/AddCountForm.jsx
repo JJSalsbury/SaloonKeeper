@@ -8,6 +8,8 @@ import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/
 import { yellow } from '@material-ui/core/colors';
 import swal from 'sweetalert';
 import Container from '@material-ui/core/Container';
+import { Paper } from '@material-ui/core';
+import './AddCountForm.css';
 
 
 import { applyMiddleware } from 'redux';
@@ -37,6 +39,7 @@ const AddCountForm = ({count}) => {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const classes = useStyles();
 
     const itemToCount = useSelector(store => store.setNewCountReducer);
 
@@ -66,39 +69,47 @@ const AddCountForm = ({count}) => {
              history.push('/count'); 
       };
 
-      const handleCountChange = (event) => {
-        addCount({ ...itemToCount, current_count: event.target.value })
-    }
+    //   const handleCountChange = (event) => {
+    //     addCount({ ...itemToCount, current_count: event.target.value })
+    // }
 
-    const handleDateChange = (event) => {
-        addCount({ ...itemToCount, create_date: event.target.value })
-    }
+    // const handleDateChange = (event) => {
+    //     addCount({ ...itemToCount, create_date: event.target.value })
+    // }
 
     return (
         <div>
-            <h3>Add To Count</h3>
-            {/* <pre>{JSON.stringify(newProduct)}</pre> */}
+            {/* <h3>Add To Count</h3>
+            <p>Product Id: {itemToCount.product_id}</p>
+            <p>Product Name: {itemToCount.name}</p> */}
+            <h1>Add New Count</h1>
+            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" /> 
+            <Container component={Paper} maxWidth="sm">
+
+            <div className="pageTitle">
+ 
+            </div>
+            <div className="countItem">
+            <h3>Count Item</h3>
             <p>Product Id: {itemToCount.product_id}</p>
             <p>Product Name: {itemToCount.name}</p>
-            
-            <Container maxWidth="md">
-            <div className="pageTitle">
-                <h1>Add New Product Form</h1>
-                {/* <pre>{JSON.stringify(newProduct)}</pre> */}
-                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />  
             </div>
-            <form onSubmit={handleSubmit}>
-            <TextField
+            
+            <form className={classes.root} noValidate autoComplete="off"  onSubmit={handleSubmit}>
+            {/* <TextField
                 required
                     id="filled-required"
                     label="Current Count"
                     helperText="Enter Current Count"
                     variant="filled"
                     margin="dense"
+                    name="current_count"
                     fullWidth
-                    value={itemToCount.current_count} onChange={handleCountChange} />
+                    value={itemToCount.current_count}
+                    onChange={handleCountChange} />
+                    {/* onChange={(event) => addCount(event.target.name, event.target.value)} */}
 
-            <TextField
+            {/* <TextField
                     required
                     id="filled-required"
                     label="yyyy-mm-dd"
@@ -106,16 +117,22 @@ const AddCountForm = ({count}) => {
                     variant="filled"
                     margin="dense"
                     type="date"
+                    name="create_date"
                     fullWidth
-                    value={itemToCount.create_date} onChange={handleDateChange} /> 
-
+                    value={itemToCount.create_date}
+                    onChange={handleDateChange}
+                    onChange={(event) => addCount(event.target.name,event.target.value)} /> */}
+                <div className="addCount">
                 <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
                 <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
+                </div>
+                {/* <input type='submit' value='Add To Inventory' /> */}
 
-                <input type='submit' value='Add To Inventory' />
-                <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
             </form>
             </Container>
+            <div className="countItem" >
+                <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
+                </div>
         </div>
     );
 }

@@ -8,6 +8,7 @@ import { yellow } from '@material-ui/core/colors';
 import swal from 'sweetalert';
 import Container from '@material-ui/core/Container';
 import { Paper } from '@material-ui/core';
+import './AddProductForm.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +24,7 @@ const ColorButton = withStyles((theme) => ({
       color: theme.palette.getContrastText(yellow[600]),
       backgroundColor: yellow[600],
       '&:hover': {
-        backgroundColor: yellow[600],
+        backgroundColor: yellow[600], 
       },
     },
   }))(Button);
@@ -96,7 +97,7 @@ const addProductForm = ({ product }) => {
         <div>
             <Container component={Paper} maxWidth="md">
             <div className="pageTitle">
-                <h1>Add New Product Form</h1>
+                <h1>Add New Product</h1>
                 {/* <pre>{JSON.stringify(newProduct)}</pre> */}
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" onClick={quickAddInfo}/>
             </div>

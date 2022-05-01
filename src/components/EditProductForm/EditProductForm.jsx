@@ -2,12 +2,20 @@ import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import { yellow } from '@material-ui/core/colors';
+import swal from 'sweetalert';
+import Container from '@material-ui/core/Container';
+import { Paper } from '@material-ui/core';
 
 
 function EditProductForm() {
     const id = useParams().id;
     const history = useHistory();
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     const editItem = useSelector(store => store.editReducer);
     // console.log('editProductForm.jsx: editItem:', editItem);
@@ -20,6 +28,25 @@ function EditProductForm() {
     const [par, setPar] = useState(editItem.par);
     const [expectedAmount, setExpectedAmount] = useState(editItem.expected_amount);
 
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& .MuiTextField-root': {
+                margin: theme.spacing(2),
+                // width: '125ch',
+            },
+        },
+    }));
+    
+    const ColorButton = withStyles((theme) => ({
+        root: {
+            color: theme.palette.getContrastText(yellow[600]),
+            backgroundColor: yellow[600],
+            '&:hover': {
+                backgroundColor: yellow[600],
+            },
+        },
+    }))(Button);
+    
     // send updated product data to database
     const editProduct = (event) => {
         event.preventDefault();
@@ -60,15 +87,16 @@ function EditProductForm() {
     }
 
     return (
-        <>
             <div>
-                <section className="editProduct">
-                    <h3>Edit Product: {editItem.name}</h3>
+                
+                    <h1>Edit Product</h1>
+                    <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+                    <p>{editItem.name}</p>
                     <p>AMOUNT: {editItem.amount}{editItem.unit_type}</p>
                     <p>TYPE: {editItem.type}</p>
                     <p>PAR: {editItem.par}</p>
                     <p>EXPECTED AMOUNT: {editItem.expected_amount}</p>
-                </section>
+                
 
                 <form onSubmit={editProduct}>
                     <input type='text' placeholder={name} value={name} onChange={(event) => setName(event.target.value)} />
@@ -81,7 +109,6 @@ function EditProductForm() {
                     <button onClick={returnToList}>Cancel Edit</button>
                 </form>
             </div>
-        </>
     )
 }
 
