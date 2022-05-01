@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import editCountForm from '../EditCountForm/EditCountForm';
 import { useHistory } from 'react-router-dom';
 import React from 'react';
-// import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-// import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import swal from 'sweetalert';
-import { Paper } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
-
 import TableRow from '@material-ui/core/TableRow';
 import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
 import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
+
+
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -39,7 +36,6 @@ const useStyles = makeStyles({
 
 function CountItem({ count }) { //item coming from .map on CountList 
 
-    const product = useSelector(store => store.productReducer);
     const user = useSelector(store => store.user);
     const dispatch = useDispatch();
     const history = useHistory();
