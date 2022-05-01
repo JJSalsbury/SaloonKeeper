@@ -15,7 +15,7 @@ function EditProductForm() {
     const id = useParams().id;
     const history = useHistory();
     const dispatch = useDispatch();
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const editItem = useSelector(store => store.editReducer);
     // console.log('editProductForm.jsx: editItem:', editItem);
@@ -28,14 +28,14 @@ function EditProductForm() {
     const [par, setPar] = useState(editItem.par);
     const [expectedAmount, setExpectedAmount] = useState(editItem.expected_amount);
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            '& .MuiTextField-root': {
-                margin: theme.spacing(2),
-                // width: '125ch',
-            },
-        },
-    }));
+    // const useStyles = makeStyles((theme) => ({
+    //     root: {
+    //         '& .MuiTextField-root': {
+    //             margin: theme.spacing(2),
+    //             // width: '125ch',
+    //         },
+    //     },
+    // }));
     
     const ColorButton = withStyles((theme) => ({
         root: {
@@ -87,8 +87,7 @@ function EditProductForm() {
     }
 
     return (
-            <div>
-                
+            <div>          
                     <h1>Edit Product</h1>
                     <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
                     <p>{editItem.name}</p>

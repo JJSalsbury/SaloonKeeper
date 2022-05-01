@@ -15,31 +15,23 @@ import './AddCountForm.css';
 import { applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& .MuiTextField-root': {
-            margin: theme.spacing(2),
-            // width: '125ch',
-        },
-    },
-}));
 
 const ColorButton = withStyles((theme) => ({
     root: {
-      color: theme.palette.getContrastText(yellow[600]),
-      backgroundColor: yellow[600],
-      '&:hover': {
+        color: theme.palette.getContrastText(yellow[600]),
         backgroundColor: yellow[600],
-      },
+        '&:hover': {
+            backgroundColor: yellow[600],
+        },
     },
-  }))(Button);
+}))(Button);
 
-const AddCountForm = ({count}) => {
+const AddCountForm = ({ count }) => {
     const id = useParams().id;
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const classes = useStyles();
+
 
     const itemToCount = useSelector(store => store.setNewCountReducer);
 
@@ -50,14 +42,14 @@ const AddCountForm = ({count}) => {
         // event.preventDefault();
         console.log('addCountButton new counted Item:', itemToCount);
         // dispatch({ type: 'START_NEW_COUNT', payload:  { property: event.target.name, value: event.target.value}  });
-        dispatch({ type: 'START_NEW_COUNT', payload:  { property: event.target.name, value: event.target.value}  });
+        dispatch({ type: 'START_NEW_COUNT', payload: { property: event.target.name, value: event.target.value } });
     }
 
     function handleSubmit(event) {
         event.preventDefault();
         // PUT REQUEST to /count/:id
         axios.put(`/api/count/${itemToCount.id}`, itemToCount)
-            .then( response => {
+            .then(response => {
                 // clean up reducer data            
                 dispatch({ type: 'CLEAR_COUNT' });
                 // refresh will happen with useEffect on Home
@@ -65,9 +57,9 @@ const AddCountForm = ({count}) => {
             })
             .catch(error => {
                 console.log('error on PUT: ', error);
-            }) 
-             history.push('/count'); 
-      };
+            })
+        history.push('/count');
+    };
 
     //   const handleCountChange = (event) => {
     //     addCount({ ...itemToCount, current_count: event.target.value })
@@ -79,60 +71,26 @@ const AddCountForm = ({count}) => {
 
     return (
         <div>
-            {/* <h3>Add To Count</h3>
-            <p>Product Id: {itemToCount.product_id}</p>
-            <p>Product Name: {itemToCount.name}</p> */}
-            <h1>Add New Count</h1>
-            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" /> 
+            <div className="countPageTitle">
+                <h1>Add New Count</h1>
+                <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+            </div>
             <Container component={Paper} maxWidth="sm">
-
-            <div className="pageTitle">
- 
-            </div>
             <div className="countItem">
-            <h3>Count Item</h3>
-            <p>Product Id: {itemToCount.product_id}</p>
-            <p>Product Name: {itemToCount.name}</p>
-            </div>
-            
-            <form className={classes.root} noValidate autoComplete="off"  onSubmit={handleSubmit}>
-            {/* <TextField
-                required
-                    id="filled-required"
-                    label="Current Count"
-                    helperText="Enter Current Count"
-                    variant="filled"
-                    margin="dense"
-                    name="current_count"
-                    fullWidth
-                    value={itemToCount.current_count}
-                    onChange={handleCountChange} />
-                    {/* onChange={(event) => addCount(event.target.name, event.target.value)} */}
-
-            {/* <TextField
-                    required
-                    id="filled-required"
-                    label="yyyy-mm-dd"
-                    helperText="Enter Date"
-                    variant="filled"
-                    margin="dense"
-                    type="date"
-                    name="create_date"
-                    fullWidth
-                    value={itemToCount.create_date}
-                    onChange={handleDateChange}
-                    onChange={(event) => addCount(event.target.name,event.target.value)} /> */}
-                <div className="addCount">
-                <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
-                <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
+                    <h3>Count Item</h3>
+                    <p>Product Id: {itemToCount.product_id}</p>
+                    <p>Product Name: {itemToCount.name}</p>
                 </div>
-                {/* <input type='submit' value='Add To Inventory' /> */}
-
-            </form>
+                <form className="countItem" onSubmit={handleSubmit}>
+                    <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
+                    <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
+                    <input type='submit' value='Add To Inventory' />
+                    
+                </form>
             </Container>
             <div className="countItem" >
                 <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
-                </div>
+            </div>
         </div>
     );
 }

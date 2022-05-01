@@ -1,6 +1,8 @@
-.countPageTitle {
+.pageTitle {
     display: flex;
     margin-bottom: 5px;
+    align-content: stretch;
+    flex-wrap: wrap;
     justify-content: center;
     
 }
