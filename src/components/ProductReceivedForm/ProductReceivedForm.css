@@ -1,21 +1,12 @@
-.countPageTitle {
+.orderReceived {
     display: flex;
     margin-bottom: 5px;
     justify-content: center;
-    
 }
 
-.countItem {
+.orderItem {
     text-align: center;
     font-size: large;
     margin-top: 20px;
     margin-bottom: 15px;
 }
-
-/* .addCount {
-    display: block;
-    text-align: center;
-    padding: 20px 10px;
-    line-height: 140;
-
-} */

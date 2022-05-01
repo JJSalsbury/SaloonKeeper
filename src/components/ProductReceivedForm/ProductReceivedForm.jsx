@@ -2,7 +2,23 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import { yellow } from '@material-ui/core/colors';
+import { Paper } from '@material-ui/core';
+import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import './ProductReceivedForm.css';
 
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText(yellow[600]),
+        backgroundColor: yellow[600],
+        '&:hover': {
+            backgroundColor: yellow[600],
+        },
+    },
+}))(Button);
 
 const ProductReceivedForm = ({ count }) => {
     const id = useParams().id;
@@ -55,16 +71,26 @@ const ProductReceivedForm = ({ count }) => {
 
     return (
         <div>
-            <h3>Order/Product Received</h3>
+        <div className="orderReceived">
+            <h1>Initial Product Stock Received</h1>
+            <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
+        </div>
+        <Container component={Paper} maxWidth="sm">
+        <div className="orderItem">
             <p>{count}</p>
             <p>Product Id: {itemToCount.id}</p>
             <p>Product Name: {itemToCount.name}</p>
             <p>Expected Amount: {itemToCount.expected_amount}</p>
-            <form onSubmit={addToCount}>
+            </div>
+            <form className="orderItem" onSubmit={addToCount}>
                 <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)}/>
                 <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)}/>
                 <input type='submit' value='Add To Inventory' />
             </form>
+            </Container>
+            <div className="orderItem">
+            <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
+            </div>
         </div>
     );
 }

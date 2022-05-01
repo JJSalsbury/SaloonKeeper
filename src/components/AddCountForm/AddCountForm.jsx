@@ -61,14 +61,6 @@ const AddCountForm = ({ count }) => {
         history.push('/count');
     };
 
-    //   const handleCountChange = (event) => {
-    //     addCount({ ...itemToCount, current_count: event.target.value })
-    // }
-
-    // const handleDateChange = (event) => {
-    //     addCount({ ...itemToCount, create_date: event.target.value })
-    // }
-
     return (
         <div>
             <div className="countPageTitle">
@@ -84,8 +76,7 @@ const AddCountForm = ({ count }) => {
                 <form className="countItem" onSubmit={handleSubmit}>
                     <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
                     <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
-                    <input type='submit' value='Add To Inventory' />
-                    
+                    <input type='submit' value='Add To Inventory' />             
                 </form>
             </Container>
             <div className="countItem" >
