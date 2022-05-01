@@ -68,6 +68,9 @@ const ProductReceivedForm = ({ count }) => {
         history.push('/product')
     }
 
+    const returnToList = () => {
+        history.push('/product');
+    }
 
     return (
         <div>
@@ -85,12 +88,13 @@ const ProductReceivedForm = ({ count }) => {
             <form className="orderItem" onSubmit={addToCount}>
                 <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)}/>
                 <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)}/>
-                <input type='submit' value='Add To Inventory' />
-            </form>
+                <div className="orderItem">
+                <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
+                </div>
+                <ColorButton type={returnToList} variant="contained" color="secondary">Cancel Add Product</ColorButton>
+                </form>
             </Container>
-            <div className="orderItem">
-            <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
-            </div>
+
         </div>
     );
 }
