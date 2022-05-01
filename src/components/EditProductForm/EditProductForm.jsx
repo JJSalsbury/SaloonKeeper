@@ -6,13 +6,12 @@ import { useState, useEffect } from 'react';
 
 function EditProductForm() {
     const id = useParams().id;
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const editItem = useSelector(store => store.editReducer);
     // console.log('editProductForm.jsx: editItem:', editItem);
     console.log('editItem:', editItem);
-
-    const history = useHistory();
-    const dispatch = useDispatch();
 
     const [name, setName] = useState(editItem.name);
     const [amount, setAmount] = useState(editItem.amount);

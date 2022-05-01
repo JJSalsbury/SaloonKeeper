@@ -12,8 +12,7 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
-            margin: theme.spacing(2),
-            // width: '125ch',
+            margin: theme.spacing(0.5),
         },
     },
 }));
@@ -67,6 +66,8 @@ const addProductForm = ({ product }) => {
         setProduct({ ...newProduct, expected_amount: event.target.value })
     }
 
+
+    
     const addProduct = (event) => {
         event.preventDefault();
 
@@ -92,7 +93,7 @@ const addProductForm = ({ product }) => {
 
     return (
         <div>
-            <Container maxWidth="lg">
+            <Container maxWidth="md">
             <div className="pageTitle">
                 <h1>Add New Product Form</h1>
                 {/* <pre>{JSON.stringify(newProduct)}</pre> */}
