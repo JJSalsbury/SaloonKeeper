@@ -64,7 +64,7 @@ const AddCountForm = ({ count }) => {
                 <h1>Add New Count</h1>
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
-            <Container component={Paper} maxWidth="sm">
+            <Container component={Paper} maxWidth="sm" className="addContainer">
                 <Paper elevation="10">
                     <div className="countItem">
                         <h3>Count Item</h3>

@@ -93,7 +93,8 @@ const addProductForm = ({ product }) => {
 
     return (
         <div>
-            <Container component={Paper} maxWidth="md">
+            <Container component={Paper} maxWidth="sm" className="addContainer">
+            <Paper elevation="10">
             <div className="pageTitle">
                 <h1>Add New Product</h1>
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" onClick={quickAddInfo}/>
@@ -174,6 +175,7 @@ const addProductForm = ({ product }) => {
                 <ColorButton  variant="contained" color="primary" type="submit">Add New Product</ColorButton>
                 </div>
             </form>
+            </Paper>
             </Container>
         </div>
     );

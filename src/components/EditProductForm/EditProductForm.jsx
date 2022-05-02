@@ -86,7 +86,7 @@ function EditProductForm() {
                 <h1>Edit Product</h1>
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
-            <Container component={Paper} maxWidth="sm">
+            <Container component={Paper} maxWidth="sm" className="editContainer">
                 <Paper elevation="10">
                     <div className="countItem">
                         <p>{editItem.name}</p>
