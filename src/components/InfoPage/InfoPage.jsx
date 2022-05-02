@@ -13,6 +13,7 @@ function InfoPage() {
     <>
       <div className="container">
         <h3>Contact Information</h3>
+        <h1>JJ Salsbury</h1>
         <h3>joshuajsalsbury@gmail.com</h3>
         <h3>www.linkedin.com/in/jj-salsbury-10532386/</h3>
       </div>

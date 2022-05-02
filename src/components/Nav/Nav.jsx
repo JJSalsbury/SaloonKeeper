@@ -37,9 +37,9 @@ function Nav() {
               Product Inventory
             </Link>
 
-            <Link className="navLink" to="/addproduct">
+            {/* <Link className="navLink" to="/addproduct">
               Add Product
-            </Link>
+            </Link> */}
 
             <Link className="navLink" to="/count">
               Product Count
