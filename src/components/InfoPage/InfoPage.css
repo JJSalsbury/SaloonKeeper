@@ -1,0 +1,18 @@
+.container {
+    text-align: center;
+}
+
+.techContainer {
+    text-align: center;
+}
+
+.techList {
+    font-size: large;
+    display: grid;
+    list-style-position: inside;
+    justify-content: space-around;
+}
+
+ul {
+    
+}

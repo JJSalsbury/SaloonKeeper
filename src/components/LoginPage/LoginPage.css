@@ -1,0 +1,12 @@
+.iconLogin {
+    max-width: 300px;
+    max-height: 300px;
+    display: grid;
+    padding-bottom: 50px;
+    
+}
+
+.title {
+    font-style: italic;
+    
+}
