@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
-import { Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { yellow } from '@material-ui/core/colors';
 import Container from '@material-ui/core/Container';
 import { Paper } from '@material-ui/core';
