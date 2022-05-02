@@ -93,7 +93,7 @@ const addProductForm = ({ product }) => {
 
     return (
         <div>
-            <Container component={Paper} maxWidth="sm" className="addContainer">
+            <Container component={Paper} maxWidth="sm" className="newProductContainer">
             <Paper elevation="10">
             <div className="pageTitle">
                 <h1>Add New Product</h1>

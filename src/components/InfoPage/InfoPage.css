@@ -1,18 +1,19 @@
 .container {
     text-align: center;
+    font-size: medium
 }
 
 .techContainer {
-    text-align: center;
+    text-align: center
 }
 
 .techList {
     font-size: large;
     display: grid;
     list-style-position: inside;
-    justify-content: space-around;
+    justify-content: space-around
 }
 
-ul {
-    
+.closingItems {
+    text-align: center
 }
