@@ -31,6 +31,13 @@ function InfoPage() {
           <li>HTML</li>
           <li>CSS</li>
         </ul>
+
+        <p>Challenges</p>
+
+        <p>Future Goals</p>
+
+        <p>Thank You</p>
+        <p>Note my contact Information at top, because I'm available for hire and I'd be an awesome part of you're team.</p>
       </div>
 
     </>

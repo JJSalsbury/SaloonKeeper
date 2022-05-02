@@ -64,29 +64,31 @@ function CountPage() {
                     <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
                 </div>
                 <section className="count">
-                    <Table className={classes.table} aria-label="customized table">
-                        <TableHead>
-                            <StyledTableRow>
-                                <StyledTableCell align="center">Product Id</StyledTableCell>
-                                <StyledTableCell align="center">Product Name</StyledTableCell>
-                                <StyledTableCell align="center">Counted By</StyledTableCell>
-                                <StyledTableCell align="center">Current Count</StyledTableCell>
-                                <StyledTableCell align="center">Count Date</StyledTableCell>
-                                <StyledTableCell align="center">Start New Count</StyledTableCell>
-                                {evaluateUser() ?
-                                    <StyledTableCell align="center">Delete Count</StyledTableCell> : <div></div>}
-                            </StyledTableRow>
-                        </TableHead>
-                        <TableBody>
-                            {countList.map((count, i) => {
-                                return (
-                                    <CountItem
-                                        key={i}
-                                        count={count} />
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
+                    <Paper elevation="15">
+                        <Table className={classes.table} aria-label="customized table">
+                            <TableHead>
+                                <StyledTableRow>
+                                    <StyledTableCell align="center">Product Id</StyledTableCell>
+                                    <StyledTableCell align="center">Product Name</StyledTableCell>
+                                    <StyledTableCell align="center">Counted By</StyledTableCell>
+                                    <StyledTableCell align="center">Current Count</StyledTableCell>
+                                    <StyledTableCell align="center">Count Date</StyledTableCell>
+                                    <StyledTableCell align="center">Start New Count</StyledTableCell>
+                                    {evaluateUser() ?
+                                        <StyledTableCell align="center">Delete Count</StyledTableCell> : <div></div>}
+                                </StyledTableRow>
+                            </TableHead>
+                            <TableBody>
+                                {countList.map((count, i) => {
+                                    return (
+                                        <CountItem
+                                            key={i}
+                                            count={count} />
+                                    );
+                                })}
+                            </TableBody>
+                        </Table>
+                    </Paper>
                 </section>
             </Container>
         </main>

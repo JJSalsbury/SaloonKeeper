@@ -71,34 +71,35 @@ function ProductListPage() {
                 </div>
                 <section className="productTable">
 
-                    <Table className={classes.table} aria-label="customized table">
-                        <TableHead>
-                            <StyledTableRow>
-                                <StyledTableCell align="center">Product Id</StyledTableCell>
-                                <StyledTableCell align="center">Image</StyledTableCell>
-                                <StyledTableCell align="center">Product Name</StyledTableCell>
-                                <StyledTableCell align="center">Unit Amt/Type</StyledTableCell>
-                                <StyledTableCell align="center">Product Type</StyledTableCell>
-                                <StyledTableCell align="center">PAR</StyledTableCell>
-                                <StyledTableCell align="center">Expected Amount</StyledTableCell>
-                                {evaluateUser() ?
-                                    <StyledTableCell align="center">Delete Product</StyledTableCell> : <div></div>}
-                                {evaluateUser() ?
-                                    <StyledTableCell align="center">Edit Product</StyledTableCell> : <div></div>}
-                                <StyledTableCell align="center">Initial Stock</StyledTableCell>
-                            </StyledTableRow>
-                        </TableHead>
-                        <TableBody>
-                            {productList.map((product, i) => {
-                                return (
-                                    <ProductItem
-                                        key={i}
-                                        product={product} />
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-
+                    <Paper elevation="20">
+                        <Table className={classes.table} aria-label="customized table">
+                            <TableHead>
+                                <StyledTableRow>
+                                    <StyledTableCell align="center">Product Id</StyledTableCell>
+                                    <StyledTableCell align="center">Image</StyledTableCell>
+                                    <StyledTableCell align="center">Product Name</StyledTableCell>
+                                    <StyledTableCell align="center">Unit Amt/Type</StyledTableCell>
+                                    <StyledTableCell align="center">Product Type</StyledTableCell>
+                                    <StyledTableCell align="center">PAR</StyledTableCell>
+                                    <StyledTableCell align="center">Expected Amount</StyledTableCell>
+                                    {evaluateUser() ?
+                                        <StyledTableCell align="center">Delete Product</StyledTableCell> : <div></div>}
+                                    {evaluateUser() ?
+                                        <StyledTableCell align="center">Edit Product</StyledTableCell> : <div></div>}
+                                    <StyledTableCell align="center">Initial Stock</StyledTableCell>
+                                </StyledTableRow>
+                            </TableHead>
+                            <TableBody>
+                                {productList.map((product, i) => {
+                                    return (
+                                        <ProductItem
+                                            key={i}
+                                            product={product} />
+                                    );
+                                })}
+                            </TableBody>
+                        </Table>
+                    </Paper>
                 </section>
             </Container>
         </main>

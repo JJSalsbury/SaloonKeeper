@@ -65,7 +65,7 @@ const ProductReceivedForm = ({ count }) => {
             button: "Back To Product List",
         });
 
-        {history.push('/product')}
+        { history.push('/product') }
     }
 
 
@@ -76,19 +76,21 @@ const ProductReceivedForm = ({ count }) => {
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
             <Container component={Paper} maxWidth="sm">
-                <div className="orderItem">
-                    <p>{count}</p>
-                    <p>Product Id: {itemToCount.id}</p>
-                    <p>Product Name: {itemToCount.name}</p>
-                    <p>Expected Amount: {itemToCount.expected_amount}</p>
-                </div>
-                <form className="orderItem" onSubmit={addToCount}>
-                    <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)} />
-                    <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)} />
+                <Paper elevation="10">
                     <div className="orderItem">
-                        <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
+                        <p>{count}</p>
+                        <p>Product Id: {itemToCount.id}</p>
+                        <p>Product Name: {itemToCount.name}</p>
+                        <p>Expected Amount: {itemToCount.expected_amount}</p>
                     </div>
-                </form>
+                    <form className="orderItem" onSubmit={addToCount}>
+                        <input type='text' placeholder='received amount' value={itemToCount.current_count} onChange={(event) => setCurrentCount(event.target.value)} />
+                        <input type='date' placeholder='create date' value={itemToCount.create_date} onChange={(event) => setCreateDate(event.target.value)} />
+                        <div className="orderItem">
+                            <ColorButton variant="contained" color="primary" type="submit">Add Product</ColorButton>
+                        </div>
+                    </form>
+                </Paper>
             </Container>
 
         </div>

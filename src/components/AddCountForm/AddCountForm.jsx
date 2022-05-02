@@ -65,18 +65,20 @@ const AddCountForm = ({ count }) => {
                 <img src="images/SaloonKeeperLogo1024_1.png" className="icon" />
             </div>
             <Container component={Paper} maxWidth="sm">
-                <div className="countItem">
-                    <h3>Count Item</h3>
-                    <p>Product Id: {itemToCount.product_id}</p>
-                    <p>Product Name: {itemToCount.name}</p>
-                </div>
-                <form className="countItem" onSubmit={handleSubmit}>
-                    <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
-                    <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
-                    <div className="addCountBtn">
-                        <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
+                <Paper elevation="10">
+                    <div className="countItem">
+                        <h3>Count Item</h3>
+                        <p>Product Id: {itemToCount.product_id}</p>
+                        <p>Product Name: {itemToCount.name}</p>
                     </div>
-                </form>
+                    <form className="countItem" onSubmit={handleSubmit}>
+                        <input onChange={(event) => addCount(event)} name="current_count" type='text' placeholder='count' value={itemToCount.current_count} />
+                        <input onChange={(event) => addCount(event)} name="create_date" type='date' placeholder='create date' value={itemToCount.create_date} />
+                        <div className="addCountBtn">
+                            <ColorButton variant="contained" color="primary" type="submit">Add New Count</ColorButton>
+                        </div>
+                    </form>
+                </Paper>
             </Container>
         </div>
     )
