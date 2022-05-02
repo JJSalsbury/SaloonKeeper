@@ -11,7 +11,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('is authenticated?', req.isAuthenticated());
 
 
-  const queryText = `SELECT * FROM "product_list" ORDER BY "product_list".id ASC;`;
+  const queryText = `SELECT * FROM "product_list" ORDER BY "product_list".id DESC;`;
 
   pool.query(queryText).then((result) => {
     // console.log('results', result.rows)
