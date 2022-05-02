@@ -88,7 +88,7 @@ const addProductForm = ({ product }) => {
     }
 
     const quickAddInfo = () => {
-        setProduct({ name: 'Jack Daniels', amount: '750ml', unit_type: 'bottle', type: 'whiskey', par: '250', image: 'https://products3.imgix.drizly.com/ci-jack-daniels-old-no-7-92707d5e737cf4ac.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', expected_amount: '250' }); 
+        setProduct({ name: 'Black Box Cabernet', amount: '1.5 gallon', unit_type: 'box', type: 'wine', par: '5', image: 'https://products1.imgix.drizly.com/ci-black-box-cabernet-sauvignon-f898d964089ed965.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', expected_amount: '5' }); 
     }
 
     return (

@@ -62,10 +62,10 @@ const ProductReceivedForm = ({ count }) => {
             title: "You've UPDATED a received order!",
             text: "This product is now available on the Count Page.",
             icon: "success",
-            button: "Back To Product List",
+            button: "Count Page",
         });
 
-        { history.push('/product') }
+        { history.push('/count') }
     }
 
 
