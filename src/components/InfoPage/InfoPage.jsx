@@ -33,6 +33,7 @@ function InfoPage() {
             <li>Redux</li>
             <li>Redux-Sagas</li>
             <li>Node.js</li>
+            <li>Express</li>
             <li>PostgresSql</li>
             <li>Material UI</li>
             <li>HTML</li>
