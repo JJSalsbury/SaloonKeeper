@@ -50,7 +50,7 @@ Open up your editor of choice and run an npm install
 
 
 1. Clone this repo
-2. Set up a database called Saloon-Keeper in Postgres. Using the database.sql file, create all the tables, add the Alter Tables commands, and then add all the data. 
+2. Set up a database called saloon-keeper in Postgres. Using the database.sql file, create all the tables, add the Alter Tables commands, and then add all the data. 
 3. In your code editing program's terminal, run 'npm install' as a terminal command.
 5. Run npm run server in your terminal
 6. Run npm run client in your terminal
