@@ -42,7 +42,7 @@ With this application, users can track ordered inventory, keep a running product
 
 ### Installation
 
-Create a database named "project_kain".
+Create a database named "saloon-keeper".
  
 The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. 
 
