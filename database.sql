@@ -13,9 +13,9 @@ CREATE TABLE "product_list" (
   "unit_type" VARCHAR (30),
   "type" VARCHAR (30),
   "amount" VARCHAR (30),
-  "par" INT (1000),
+  "par" INT NOT NULL,
   "image" VARCHAR,
-  "expected_amount" INT (1000),
+  "expected_amount" INT NOT NULL,
   "product_ordered" BOOLEAN DEFAULT FALSE
 );
 
@@ -31,12 +31,12 @@ CREATE TABLE "product_count" (
 --------[ DATA! ]---------
 
 -- starter products
-INSERT INTO "product_list"("id","name","amount","unit_type","type","par","expected_amount","image","product_ordered")
+INSERT INTO "product_list"("name","amount","unit_type","type","par","expected_amount","image","product_ordered")
 VALUES
 ('Jameson Irish Whiskey', '750 ml', 'bottle', 'whiskey', 99, 100, 'https://dydza6t6xitx6.cloudfront.net/ci-jameson-irish-whiskey-83c0830f276cf30a.jpeg', TRUE),
 ('Grey Goose Vodka', '750 ml', 'bottle', 'vodka', 125, 125, 'https://products0.imgix.drizly.com/ci-grey-goose-vodka-5beb834a0488bbbb.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', TRUE),
 ('Casamigo Tequilla', '750 ml', 'bottle', 'tequilla', 170, 170, 'https://products1.imgix.drizly.com/ci-casamigos-reposado-c8e64577064c12b1.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', TRUE),
-('Tanqueray', '1.75 l', 'bottle', 'gin', 175, 175, 'https://products1.imgix.drizly.com/ci-tanqueray-london-dry-gin-148bea7a3b10c3e4.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', RUE),
+('Tanqueray', '1.75 l', 'bottle', 'gin', 175, 175, 'https://products1.imgix.drizly.com/ci-tanqueray-london-dry-gin-148bea7a3b10c3e4.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', TRUE),
 ('Bombay Saphire', '1.5 l', 'bottle', 'gin', 200, 200, 'https://products0.imgix.drizly.com/ci-bombay-sapphire-4967085f606d9efa.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', TRUE),
 ('Bulleit Bourban', '750 ml', 'bottle', 'bourban', 200, 200, 'https://products3.imgix.drizly.com/ci-bulleit-bourbon-ece6dc419fd8a84b.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', TRUE),
 ('Johnny Walker Red' ,'750 ml', 'bottle', 'scotch', 190, 190,'https://products0.imgix.drizly.com/ci-johnnie-walker-red-label-f85033b74cb4b835.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20', TRUE),
