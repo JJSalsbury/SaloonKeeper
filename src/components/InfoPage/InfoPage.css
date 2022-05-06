@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    font-size: medium
+    font-size: large
 }
 
 .techContainer {
@@ -8,7 +8,7 @@
 }
 
 .techList {
-    font-size: large;
+    font-size: larger;
     display: grid;
     list-style-position: inside;
     justify-content: space-around
