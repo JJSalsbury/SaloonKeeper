@@ -13,7 +13,7 @@
 
 ## Description
 
-The SaloonKeeper is an full CRUD, full-stack application that provides a simple solution for product accountability.
+The SaloonKeeper is a full CRUD, full-stack application that provides a simple solution for product accountability.
 
 With this application, users can track ordered inventory, keep a running product list, verify counted product amounts and cost of goods sold to better understand how inventory impacts sales and profits. It’s time to replace mountains and mountains of spreadsheets with a flexible platform that connects each step of inventory management. From taking counts to providing data to help cost drinks, The SaloonKeeper can help strengthen your bar program.
 
