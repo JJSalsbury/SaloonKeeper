@@ -8,12 +8,13 @@
 }
 
 .techList {
-    font-size: larger;
+    font-size: x-large;
     display: grid;
     list-style-position: inside;
     justify-content: space-around
 }
 
 .closingItems {
-    text-align: center
+    text-align: center;
+    font-size: large
 }

@@ -22,9 +22,8 @@ function InfoPage() {
       </header>
       <body>
         <div >
-        <div className="closingItems">
-
-            <p>Note my contact Information at top, because I'm available for hire and I'd be an awesome part of you're team. &#128540;</p>
+          <div className="closingItems">
+            <p>Note my contact Information at top, because I'm available for hire and I'd be an awesome part of you're team. &#128513;</p>
           </div>
           <h3 className="techContainer">Technologies Used Include:</h3>
           <ul className="techList">
